@@ -44,7 +44,7 @@ lint: |
   ${DEVAP_CMD_ANSIBLELINT} ${DEVAP_TEST_ANSIBLE_LINT_VERBOSE} -c ${DEVAP_ANSIBLE_LINT} --project-dir ${DEVAP_TEST_ROLE_PATH} --exclude molecule
 platforms:
   - name: "centos8"
-    image: "ghcr.io/serdigital64/centos-8-ansible-node:latest"
+    image: "ghcr.io/automation64/centos-8-ansible-node:latest"
     pre_build_image: true
     groups:
       - "centos"
@@ -64,7 +64,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "rhel8"
-    image: "ghcr.io/serdigital64/rhel-8-ansible-node:latest"
+    image: "ghcr.io/automation64/rhel-8-ansible-node:latest"
     pre_build_image: true
     groups:
       - "ubi"
@@ -84,7 +84,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "almalinux8"
-    image: "ghcr.io/serdigital64/almalinux-8-ansible-node:latest"
+    image: "ghcr.io/automation64/almalinux-8-ansible-node:latest"
     pre_build_image: true
     groups:
       - "alm"
@@ -104,7 +104,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "rockylinux8"
-    image: "ghcr.io/serdigital64/rockylinux-8-ansible-node:latest"
+    image: "ghcr.io/automation64/rockylinux-8-ansible-node:latest"
     pre_build_image: true
     groups:
       - "rck"
@@ -124,7 +124,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "oraclelinux8"
-    image: "ghcr.io/serdigital64/oraclelinux-8-ansible-node:latest"
+    image: "ghcr.io/automation64/oraclelinux-8-ansible-node:latest"
     pre_build_image: true
     groups:
       - "oel"
@@ -144,7 +144,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "oraclelinux9"
-    image: "ghcr.io/serdigital64/oraclelinux-9-ansible-node:latest"
+    image: "ghcr.io/automation64/oraclelinux-9-ansible-node:latest"
     pre_build_image: true
     groups:
       - "oel"
@@ -164,7 +164,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "fedora33"
-    image: "ghcr.io/serdigital64/fedora-33-ansible-node:latest"
+    image: "ghcr.io/automation64/fedora-33-ansible-node:latest"
     pre_build_image: true
     groups:
       - "fedora"
@@ -182,7 +182,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "fedora35"
-    image: "ghcr.io/serdigital64/fedora-35-ansible-node:latest"
+    image: "ghcr.io/automation64/fedora-35-ansible-node:latest"
     pre_build_image: true
     groups:
       - "fedora"
@@ -200,7 +200,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "fedora36"
-    image: "ghcr.io/serdigital64/fedora-36-ansible-node:latest"
+    image: "ghcr.io/automation64/fedora-36-ansible-node:latest"
     pre_build_image: true
     groups:
       - "fedora"
@@ -218,7 +218,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "debian10"
-    image: "ghcr.io/serdigital64/debian-10-ansible-node:latest"
+    image: "ghcr.io/automation64/debian-10-ansible-node:latest"
     pre_build_image: true
     groups:
       - "debian"
@@ -234,7 +234,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "debian11"
-    image: "ghcr.io/serdigital64/debian-11-ansible-node:latest"
+    image: "ghcr.io/automation64/debian-11-ansible-node:latest"
     pre_build_image: true
     groups:
       - "debian"
@@ -250,7 +250,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "ubuntu20"
-    image: "ghcr.io/serdigital64/ubuntu-20.4-ansible-node:latest"
+    image: "ghcr.io/automation64/ubuntu-20.4-ansible-node:latest"
     pre_build_image: true
     groups:
       - "ubuntu"
@@ -268,7 +268,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "ubuntu21"
-    image: "ghcr.io/serdigital64/ubuntu-21.4-ansible-node:latest"
+    image: "ghcr.io/automation64/ubuntu-21.4-ansible-node:latest"
     pre_build_image: true
     groups:
       - "ubuntu"
@@ -286,7 +286,7 @@ platforms:
       - "SYS_ADMIN"
     command: "/lib/systemd/systemd"
   - name: "ubuntu22"
-    image: "ghcr.io/serdigital64/ubuntu-22.4-ansible-node:latest"
+    image: "ghcr.io/automation64/ubuntu-22.4-ansible-node:latest"
     pre_build_image: true
     groups:
       - "ubuntu"

@@ -3,19 +3,19 @@
 #
 # * Format: CSV
 # * Fields: combo:collection:skeleton
-# * Last update: 9-APR-2022
+# * Last update: 24-JUN-2023
 #
 aplatform64-role:Ansible:molecule-aplatform64
 aplatform64-role:Ansible:role-aplatform64-full
 aplatform64-role:Licenses:git-coc
 aplatform64-role:Licenses:gnu-v3
 aplatform64-role:MarkDown:ansible-role-aplatform64
-git-generic:GIT:generic
-git-generic:Licenses:git-coc
-git-generic:Licenses:gnu-v3
-git-generic:MarkDown:project-generic-readme-v2
-git-generic:MarkDown:project-generic-changelog
-git-generic:MarkDown:project-generic-contributing
+git-code-generic:GIT:code-generic
+git-code-generic:Licenses:git-coc
+git-code-generic:Licenses:gnu-v3
+git-code-generic:MarkDown:project-generic-readme-v2
+git-code-generic:MarkDown:project-generic-changelog
+git-code-generic:MarkDown:project-generic-contributing
 git-terraform-module:GIT:terraform-module
 git-terraform-module:Terraform:module-generic
 git-terraform-module:Licenses:apache-v2

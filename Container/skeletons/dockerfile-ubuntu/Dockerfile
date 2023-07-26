@@ -1,13 +1,6 @@
 # Base image
 FROM docker.io/library/ubuntu:21.04
 
-# Image Metadata
-LABEL \
-    container64.os-name="X_TAG_OS_NAME_X" \
-    container64.os-version="X_TAG_OS_VER_X" \
-    container64.image-version="X_TAG_IMG_VER_X" \
-    container64.image-content="X_TAG_IMG_CONTENT_X"
-
 # Prepare package installer
 ENV container="docker"
 ENV LC_ALL="C"

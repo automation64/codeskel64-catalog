@@ -4,7 +4,7 @@
 
 X_COLLECTION_SHORT_DESCRIPTION_X.
 
-This collection is part of the [A:Platform64](https://github.com/serdigital64/aplatform64) project for automated infrastructure-as-code management.
+This collection is part of the [A:Platform64](https://github.com/automation64/aplatform64) project for automated infrastructure-as-code management.
 
 ## Content
 

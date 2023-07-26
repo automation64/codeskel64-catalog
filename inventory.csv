@@ -3,7 +3,7 @@
 #
 # * Format: CSV
 # * Fields: collection:skeleton:type:default_name
-# * Last update: 25-JUN-2022
+# * Last update: 24-JUL-2023
 #
 Ansible:ansiblelint-role:f:.ansible-lint
 Ansible:collection-aplatform64:d:collection-template
@@ -27,7 +27,8 @@ Container:dockerfile-hello_world:f:Dockerfile
 Container:dockerfile-ubuntu:f:Dockerfile
 GHActions:lint-bash-testmansh:d:_project_
 GHActions:test-bash-testmansh:d:_project_
-GIT:generic:d:_project_
+GIT:bashlib64-generic:d:_project_
+GIT:code-generic:d:_project_
 GIT:helm-generic:d:_project_
 GIT:terraform-module:d:_project_
 Go:main-hello-world:f:main.go

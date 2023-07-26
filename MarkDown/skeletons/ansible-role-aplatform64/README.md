@@ -15,7 +15,7 @@ Supported features in the current version:
 - Provision application components.
 - Configure OS level firewall rules. Rules are defined in the varible `X_ROLE_NAME_X_firewall_rules`
 
-The **X_ROLE_NAME_X** Ansible-Role is part of the [A:Platform64](https://github.com/serdigital64/aplatform64) project and is available in the [X_COLLECTION_NAME_X](https://aplatform64.readthedocs.io/en/latest/collections/X_COLLECTION_NAME_X) Ansible-Collection.
+The **X_ROLE_NAME_X** Ansible-Role is part of the [A:Platform64](https://github.com/automation64/aplatform64) project and is available in the [X_COLLECTION_NAME_X](https://aplatform64.readthedocs.io/en/latest/collections/X_COLLECTION_NAME_X) Ansible-Collection.
 
 ## Usage
 
@@ -32,7 +32,7 @@ The playbook can be run by executing:
 ```shell
 # Set ANSIBLE_COLLECTIONS_PATHS to the default location. Change as needed.
 ANSIBLE_COLLECTIONS_PATHS="${HOME}/.ansible/collections"
-ansible-playbook "${ANSIBLE_COLLECTIONS_PATHS}/ansible_collections/serdigital64/X_COLLECTION_NAME_X/playbooks/X_ROLE_NAME_X.yml"
+ansible-playbook "${ANSIBLE_COLLECTIONS_PATHS}/ansible_collections/automation64/X_COLLECTION_NAME_X/playbooks/X_ROLE_NAME_X.yml"
 ```
 
 ## Role Parameters

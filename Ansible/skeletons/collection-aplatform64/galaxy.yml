@@ -12,8 +12,8 @@ tags:
   - "X_COLLECTION_TAGS_X"
 dependencies:
   serdigital64.core: "*"
-repository: "https://github.com/serdigital64/aplatform64"
-homepage: "https://github.com/serdigital64/aplatform64"
-issues: "https://github.com/serdigital64/aplatform64/issues"
+repository: "https://github.com/automation64/aplatform64"
+homepage: "https://github.com/automation64/aplatform64"
+issues: "https://github.com/automation64/aplatform64/issues"
 documentation: "https://aplatform64.readthedocs.io"
 ...
