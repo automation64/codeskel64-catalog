@@ -1,4 +1,4 @@
-Copyright [yyyy] [name of copyright owner]
+Copyright [X_COPYRIGHT_YEAR_X] [X_COPYRIGHT_OWNER_X]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

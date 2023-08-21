@@ -1,36 +1,41 @@
 #!/usr/bin/env bash
+# Template: 1.0.0
 # X_SCRIPT_HEADER_PLACEHOLDER_X
 
+#
+# Imports
+#
+
 # shellcheck source=SCRIPTDIR/bashlib64.bash
-#source "${X_PATH_TO_LIB_X}/bashlib64.bash" || { echo "Error: unable to load bashlib64" && exit 1; }
-source "./bashlib64.bash" || { echo "Error: unable to load bashlib64" && exit 1; }
+source "${X_PATH_TO_LIB_X}/bashlib64.bash" || { echo "Error: unable to load bashlib64" && exit 1; }
 
 #
 # Globals
 #
-# RemoveMe # Use this section to declare global variables only. Settings are done in the function X_APP_NAMESPACE_X_initialize
-# RemoveMe # If there are too many definitions consider using a separated script.env file that can be sourced
+# delete-me # Use this section to declare global variables only. Settings are done in the function X_APP_NAMESPACE_X_initialize
+# delete-me # If there are too many definitions consider using a separated script.env file that can be sourced
 
-# Example # export X_APP_NAMESPACE_X_X_EXPORT_RO_X=''
-# Example # export X_APP_NAMESPACE_X_X_EXPORT_X=''
+# example # readonly X_APP_NAMESPACE_X_X_EXPORT_RO_X=''
+# example # export X_APP_NAMESPACE_X_X_EXPORT_X=''
 
 #
 # Functions
 #
 
+# X_FUNCTION_HEADER_PLACEHOLDER_X
 function X_APP_NAMESPACE_X_X_FUNCTION_COMMAND1_X() {
   bl64_dbg_app_show_function "@"
   local option="$1"
   local flag="$2"
   local -i status=1
 
-  # RemoveMe # bl64_check_parameter 'option' || return 1
-  :
+  bl64_check_parameter 'option' || return 1
   status=$?
 
   return $status
 }
 
+# X_FUNCTION_HEADER_PLACEHOLDER_X
 function X_APP_NAMESPACE_X_X_FUNCTION_COMMAND2_X() {
   bl64_dbg_app_show_function
   local -i status=1
@@ -41,7 +46,17 @@ function X_APP_NAMESPACE_X_X_FUNCTION_COMMAND2_X() {
   return $status
 }
 
-# RemoveMe # Use this function to set global values only.
+#######################################
+# Initialize environment
+#
+# Arguments:
+#   None
+# Outputs:
+#   Initializacion progress messages
+# Returns:
+#   0: initialization ok
+#   >: failed to initialize
+#######################################
 function X_APP_NAMESPACE_X_initialize() {
   bl64_dbg_app_show_function "@"
   local command="$1"
@@ -52,6 +67,16 @@ function X_APP_NAMESPACE_X_initialize() {
   return 0
 }
 
+#######################################
+# Show script usage description
+#
+# Arguments:
+#   None
+# Outputs:
+#   Command line format and description
+# Returns:
+#   0
+#######################################
 function X_APP_NAMESPACE_X_help() {
   bl64_msg_show_usage \
     '-x|-w [-y X_OPT1_X] [-z] [-V Verbose] [-D Debug] [-h]' \
