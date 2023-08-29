@@ -3,7 +3,7 @@
 #
 # * Format: CSV
 # * Fields: collection:skeleton:type:default_name
-# * Last update: 21-AGO-2023
+# * Last update: 29-AUG-2023
 #
 
 Ansible:ansiblelint-role:f:.ansible-lint
@@ -22,10 +22,11 @@ BashLib64:script-single:f:main.bash
 
 Container:docker-generic:f:Dockerfile
 Container:docker-hello_world:f:Dockerfile
-Container:docker-ubuntu:f:Dockerfile
 Container:docker-multi-stage:f:Dockerfile
+Container:docker-ubuntu:f:Dockerfile
 
-Container64:toolbox64-installer:f:toolbox64_install_package
+Container64:helper:f:setup
+Container64:installer:f:install-package
 
 GHActions:bashlib64:d:_project_
 
@@ -73,8 +74,12 @@ TestManSH:bash-generic:d:test
 TestManTF:main-generic:d:terraform
 
 VSCode:configuration-full:d:_project_
+VSCode:devcontainer-base:d:_project_
+VSCode:extensions-base:d:_project_
 VSCode:extensions-full:d:_project_
-VSCode:devcontainer-alpine-base:d:_project_
+VSCode:extensions-k8s:d:_project_
+VSCode:extensions-shell:d:_project_
+VSCode:extensions-theme:d:_project_
 
 YAML:yamllint-ansible:f:.yamllint
 

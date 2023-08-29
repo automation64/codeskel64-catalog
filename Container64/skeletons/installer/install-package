@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Template: 1.0.0
 #######################################
-# Toolbox64 / Package installer
+# Container64 / Package installer
 #
 # Author: SerDigital64 (https://github.com/serdigital64)
 # Repository: https://github.com/automation64/container64
@@ -27,15 +27,19 @@
 # Imports
 #
 
-export TOOLBOX64_BASHLIB64="${TOOLBOX64_BASHLIB64:-/usr/local/lib/bashlib64.bash}"
-# shellcheck disable=SC1090
-source "$TOOLBOX64_BASHLIB64" || { echo "Error: unable to load bashlib64 (${TOOLBOX64_BASHLIB64})" && exit 1; }
+# Environment Definition. See docs/base-environment.md for details
+export CNT64_BASHLIB64
+export CNT64_DEBUG="${CNT64_DEBUG:-}"
+# X_CODE_PLACEHOLDER_1_X
+
+# shellcheck source=SCRIPTDIR/../../lib/bashlib64.bash
+source "$CNT64_BASHLIB64" || { echo "Error: unable to load bashlib64 (${CNT64_BASHLIB64})" && exit 1; }
 
 #
 # Globals
 #
 
-export TOOLBOX64_DEBUG="${TOOLBOX64_DEBUG:-}"
+# X_CODE_PLACEHOLDER_2_X
 
 #
 # Functions
@@ -45,17 +49,16 @@ export TOOLBOX64_DEBUG="${TOOLBOX64_DEBUG:-}"
 # Install application packages
 #
 # Arguments:
-#   None
+#   None. Parameters are imported from Globals
 # Outputs:
 #   Package installer progress and errors
 # Returns:
 #   0: package installed ok
 #   >0: unable to install package
 #######################################
-function tb64_install() {
+function cnt64_X_APP_NAME_X_install() {
   bl64_dbg_app_show_function
-
-  # X_CODE_PLACEHOLDER_X
+  # X_CODE_PLACEHOLDER_3_X
 }
 
 #######################################
@@ -69,33 +72,25 @@ function tb64_install() {
 #   0: initialization ok
 #   >: failed to initialize
 #######################################
-function tb64_initialize() {
+function cnt64_X_APP_NAME_X_initialize() {
   bl64_dbg_app_show_function
-
-  # delete-me # Update OS list as needed
-  bl64_os_match "${BL64_OS_ALP}" || {
-    bl64_check_alert_unsupported
-    return $?
-  }
-  bl64_check_privilege_root &&
-    bl64_pkg_setup ||
-    return $?
+  # X_CODE_PLACEHOLDER_4_X
 }
 
 #
 # Main
 #
 
-declare tb64_task_title='Install package: X_PACKAGE_NAME_X'
-declare -i tb64_status=0
+declare cnt64_X_APP_NAME_X_installer_description='Install application: X_APP_FULL_NAME_X'
+declare -i cnt64_X_APP_NAME_X_status=0
 
 bl64_msg_all_enable_verbose
-bl64_msg_show_batch_start "$tb64_task_title"
+bl64_msg_show_batch_start "$cnt64_X_APP_NAME_X_installer_description"
 
-[[ -n "$TOOLBOX64_DEBUG" ]] && bl64_dbg_lib_enable
-tb64_initialize &&
-  tb64_install
-tb64_status=$?
+[[ -n "$CNT64_DEBUG" ]] && bl64_dbg_lib_enable
+cnt64_X_APP_NAME_X_initialize &&
+  cnt64_X_APP_NAME_X_install
+cnt64_X_APP_NAME_X_status=$?
 
-bl64_msg_show_batch_finish "$tb64_status" "$tb64_task_title"
-exit $tb64_status
+bl64_msg_show_batch_finish "$cnt64_X_APP_NAME_X_status" "$cnt64_X_APP_NAME_X_installer_description"
+exit $cnt64_X_APP_NAME_X_status
