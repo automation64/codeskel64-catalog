@@ -1,0 +1,12 @@
+# ** ACTION REQUIRED: this is a template file. Copy to .local-github and remove this line **
+#!/bin/sh
+#
+# Project development environment / Local variables / GitHub
+#
+# * Use to map GitHub Actions automatic shell variables to local variables
+# * Do not include secrets. They must be declared at the workflow level as ENV variables
+# * All variables must be declared in the template dot.local
+# * Do not include DEVCNT_ROOT as it's already set in the bin/dev-set script
+# * Template version: 1.0.0
+#
+
