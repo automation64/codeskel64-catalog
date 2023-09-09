@@ -7,7 +7,7 @@
     cnt64_X_APP_NAME_X_install_X_TARGET_OS_X
   fi
   # shellcheck disable=SC2181
-  (($? != 0)) && return $?
+  (($? != 0)) && return 1
 
   bl64_msg_show_task 'cleanup temporary files'
   bl64_fs_cleanup_full

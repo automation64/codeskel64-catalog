@@ -9,18 +9,18 @@
 # shellcheck source=SCRIPTDIR/dev-set
 source ./bin/dev-set || exit 1
 # shellcheck source=SCRIPTDIR/../lib/bashlib64.bash
-source "$X_PROJECT_NAME_DEV_CAPS_X_CICD_BASHLIB64" || exit 1
+source "$DEV_CICD_BASHLIB64" || exit 1
 
 # shellcheck disable=SC2154
-bl64_msg_show_text "Build app (${X_PROJECT_NAME_DEV_CAPS_X_BUILD_NAME})"
+bl64_msg_show_text "Build app (${DEV_BUILD_NAME})"
 bl64_fs_merge_files \
   '0755' \
   "$BL64_VAR_DEFAULT" \
   "$BL64_VAR_DEFAULT" \
   "$BL64_VAR_ON" \
-  "$X_PROJECT_NAME_DEV_CAPS_X_BUILD_FULL_PATH" \
-  "${X_PROJECT_NAME_DEV_CAPS_X_SRC}/header.bash" \
-  "$X_PROJECT_NAME_DEV_CAPS_X_CICD_BASHLIB64" \
-  "${X_PROJECT_NAME_DEV_CAPS_X_SRC}/env.bash" \
-  "${X_PROJECT_NAME_DEV_CAPS_X_SRC}/functions.bash" \
-  "${X_PROJECT_NAME_DEV_CAPS_X_SRC}/main.bash"
+  "$DEV_BUILD_FULL_PATH" \
+  "${DEV_SRC}/header.bash" \
+  "$DEV_CICD_BASHLIB64" \
+  "${DEV_SRC}/env.bash" \
+  "${DEV_SRC}/functions.bash" \
+  "${DEV_SRC}/main.bash"

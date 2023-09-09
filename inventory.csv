@@ -3,7 +3,7 @@
 #
 # * Format: CSV
 # * Fields: collection:skeleton:type:default_name
-# * Last update: 29-AUG-2023
+# * Last update: 9-SEP-2023
 #
 
 Ansible:ansiblelint-role:f:.ansible-lint
@@ -44,21 +44,25 @@ Licenses:apache-v2:f:LICENSE
 Licenses:git-coc:f:CODE_OF_CONDUCT.md
 Licenses:gnu-v3:f:COPYING
 
-MarkDown:ansible-collection-aplatform64:f:README.md
-MarkDown:ansible-collection-generic:f:README.md
-MarkDown:ansible-playbook-aplatform64:f:README.md
-MarkDown:ansible-role-aplatform64:f:README.md
-MarkDown:ansible-role-generic:f:README.md
-MarkDown:helm-helm64:f:README.md
-MarkDown:project-generic-changelog:f:CHANGELOG.md
-MarkDown:project-generic-contributing:f:CONTRIBUTING.md
-MarkDown:project-generic-readme-v1:f:README.md
-MarkDown:project-generic-readme-v2:f:README.md
-MarkDown:project-monorepo-readme-v1:f:README.md
-MarkDown:shellscript-generic-v1:f:README.md
-MarkDown:shellscript-generic-v2:f:README.md
-MarkDown:terraform-module:f:README.md
-MarkDown:terraform-terra4cloud64:f:README.md
+Documentation:ansible-collection-aplatform64:f:README.md
+Documentation:ansible-collection-generic:f:README.md
+Documentation:ansible-playbook-aplatform64:f:README.md
+Documentation:ansible-role-aplatform64:f:README.md
+Documentation:ansible-role-generic:f:README.md
+Documentation:helm-helm64:f:README.md
+Documentation:kb-app:d:_project_
+Documentation:kb-howto:d:_project_
+Documentation:kb-languaje:d:_project_
+Documentation:kb-spec:d:_project_
+Documentation:project-generic-changelog:f:CHANGELOG.md
+Documentation:project-generic-contributing:f:CONTRIBUTING.md
+Documentation:project-generic-readme-v1:f:README.md
+Documentation:project-generic-readme-v2:f:README.md
+Documentation:project-monorepo-readme-v1:f:README.md
+Documentation:shellscript-generic-v1:f:README.md
+Documentation:shellscript-generic-v2:f:README.md
+Documentation:terraform-module:f:README.md
+Documentation:terraform-terra4cloud64:f:README.md
 
 MkDocs:configuration-material:d:doc-template
 MkDocs:configuration-readthedocs:d:doc-template
