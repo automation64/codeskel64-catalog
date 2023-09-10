@@ -35,8 +35,6 @@ function cnt64_X_APP_NAME_X_install_with_pipx() {
   pipx install "$packages"
 }
 
-# X_CODE_PLACEHOLDER_1_X
-
 # X_CODE_PLACEHOLDER_2_X
 export CNT64_X_APP_NAME_CAPS_X_VERSION="${CNT64_X_APP_NAME_CAPS_X_VERSION:-latest}"
 # Use OS native package?

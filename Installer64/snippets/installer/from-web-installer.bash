@@ -1,7 +1,3 @@
-# X_CODE_PLACEHOLDER_1_X
-export CNT64_LOCAL_BIN
-export CNT64_OPT_ROOT
-
 # X_CODE_PLACEHOLDER_2_X
 export CNT64_X_APP_NAME_CAPS_X_PLATFORM="${CNT64_X_APP_NAME_CAPS_X_PLATFORM:-X_APP_PLATFORM_X}"
 export CNT64_X_APP_NAME_CAPS_X_SOURCE="${CNT64_X_APP_NAME_CAPS_X_SOURCE:-X_APP_REPO_X}"
@@ -44,7 +40,5 @@ export CNT64_X_APP_NAME_CAPS_X_VERSION="${CNT64_X_APP_NAME_CAPS_X_VERSION:-X_APP
   return 0
 
 # X_CODE_PLACEHOLDER_4_X
-  bl64_check_export 'CNT64_LOCAL_BIN' &&
-    bl64_check_export 'CNT64_OPT_ROOT' &&
-    bl64_arc_setup &&
+  bl64_arc_setup &&
     bl64_check_privilege_root

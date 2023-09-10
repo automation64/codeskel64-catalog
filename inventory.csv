@@ -25,8 +25,8 @@ Container:docker-hello_world:f:Dockerfile
 Container:docker-multi-stage:f:Dockerfile
 Container:docker-ubuntu:f:Dockerfile
 
-Container64:helper:f:setup
-Container64:installer:f:install-package
+Installer64:helper:f:setup
+Installer64:installer:f:install-package
 
 GHActions:bashlib64:d:_project_
 
