@@ -2,7 +2,7 @@
 
 # X_CODE_PLACEHOLDER_3_X
   if bl64_os_match "${X_BL64_OS_ID_X}"; then
-    cnt64_X_APP_NAME_X_install_X_TARGET_OS_X
+    inst64_X_APP_NAME_X_install_X_TARGET_OS_X
   fi
   # shellcheck disable=SC2181
   (($? != 0)) && return 1
@@ -18,7 +18,7 @@
 
 
 # X_STAND_ALONE_FUNCTIONS_X #
-function cnt64_X_APP_NAME_X_install_X_TARGET_OS_X() {
+function inst64_X_APP_NAME_X_install_X_TARGET_OS_X() {
   local repository_name='X_REPO_NAME_X'
   local repository_platform='X_REPO_PLATFORM_X'
   local repository_url='X_REPO_URL_X'

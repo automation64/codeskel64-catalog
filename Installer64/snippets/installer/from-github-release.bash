@@ -1,7 +1,7 @@
 # X_CODE_PLACEHOLDER_2_X
-export CNT64_X_APP_NAME_CAPS_X_PLATFORM="${CNT64_X_APP_NAME_CAPS_X_PLATFORM:-X_APP_PLATFORM_X}"
-export CNT64_X_APP_NAME_CAPS_X_TARGET="${CNT64_X_APP_NAME_CAPS_X_TARGET:-${CNT64_OPT_ROOT}/X_APP_NAME_X}"
-export CNT64_X_APP_NAME_CAPS_X_VERSION="${CNT64_X_APP_NAME_CAPS_X_VERSION:-latest}"
+export INST64_X_APP_NAME_CAPS_X_PLATFORM="${INST64_X_APP_NAME_CAPS_X_PLATFORM:-X_APP_PLATFORM_X}"
+export INST64_X_APP_NAME_CAPS_X_TARGET="${INST64_X_APP_NAME_CAPS_X_TARGET:-${INST64_OPT_ROOT}/X_APP_NAME_X}"
+export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-latest}"
 
 # X_CODE_PLACEHOLDER_3_X
   local repo_owner='X_REPO_OWNER_X'
@@ -17,23 +17,23 @@ export CNT64_X_APP_NAME_CAPS_X_VERSION="${CNT64_X_APP_NAME_CAPS_X_VERSION:-lates
 
   bl64_msg_show_task 'download application'
   work_path="$(bl64_fs_create_tmpdir)" || return $?
-  if [[ "$CNT64_X_APP_NAME_CAPS_X_VERSION" == 'latest' ]]; then
-    CNT64_X_APP_NAME_CAPS_X_VERSION="$(bl64_vcs_github_release_get_latest "$repo_owner" "$repo_name")" ||
+  if [[ "$INST64_X_APP_NAME_CAPS_X_VERSION" == 'latest' ]]; then
+    INST64_X_APP_NAME_CAPS_X_VERSION="$(bl64_vcs_github_release_get_latest "$repo_owner" "$repo_name")" ||
       return $?
   fi
 
-  bl64_rxtx_github_get_asset "$repo_owner" "$repo_name" "$CNT64_X_APP_NAME_CAPS_X_VERSION" "$package_name" "${work_path}/${package_name}" &&
+  bl64_rxtx_github_get_asset "$repo_owner" "$repo_name" "$INST64_X_APP_NAME_CAPS_X_VERSION" "$package_name" "${work_path}/${package_name}" &&
     bl64_arc_open_tar "${work_path}/${package_name}" "${work_path}" ||
     return $?
 
   bl64_msg_show_task 'deploy application'
-  bl64_fs_create_dir "$app_target_mode" "$app_target_owner" "$app_target_owner" "$CNT64_X_APP_NAME_CAPS_X_TARGET" &&
-    bl64_fs_copy_files "$app_cli_mode" "$app_target_owner" "$app_target_owner" "$CNT64_X_APP_NAME_CAPS_X_TARGET" "${work_path}/${app_cli}" ||
+  bl64_fs_create_dir "$app_target_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" &&
+    bl64_fs_copy_files "$app_cli_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" "${work_path}/${app_cli}" ||
     return $?
 
-  bl64_msg_show_task "publish application to searchable path (${CNT64_LOCAL_BIN})"
+  bl64_msg_show_task "publish application to searchable path (${INST64_LOCAL_BIN})"
   # shellcheck disable=SC2086
-  bl64_fs_run_ln $BL64_FS_SET_LN_SYMBOLIC "${CNT64_X_APP_NAME_CAPS_X_TARGET}/${app_cli}" "${CNT64_LOCAL_BIN}/${app_cli}" ||
+  bl64_fs_run_ln $BL64_FS_SET_LN_SYMBOLIC "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli}" "${INST64_LOCAL_BIN}/${app_cli}" ||
     return $?
 
   bl64_msg_show_task 'cleanup temporary files'
