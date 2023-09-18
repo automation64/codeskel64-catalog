@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    // VSCode / Extensions / Ansible
+    //
+    // Settings Template Version: 110922
+    // VSCode Version: >= 1.66
+    //
+    // Static settings section. Use to keep read-only settings that will only be modified when updating from the master template.
+    //
+    "redhat.ansible",
+  ]
+}

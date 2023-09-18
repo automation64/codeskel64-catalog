@@ -14,6 +14,6 @@
     "timonwong.shellcheck",
     "mads-hartmann.bash-ide-vscode",
     "rogalmic.bash-debug",
-    "shakram02.bash-beautify"
+    "shakram02.bash-beautify",
   ]
 }
