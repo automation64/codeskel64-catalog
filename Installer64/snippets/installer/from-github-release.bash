@@ -1,3 +1,4 @@
+# Snippet: 1.0.0
 # X_CODE_PLACEHOLDER_2_X
 export INST64_X_APP_NAME_CAPS_X_PLATFORM="${INST64_X_APP_NAME_CAPS_X_PLATFORM:-X_APP_PLATFORM_X}"
 export INST64_X_APP_NAME_CAPS_X_TARGET="${INST64_X_APP_NAME_CAPS_X_TARGET:-${INST64_OPT_ROOT}/X_APP_NAME_X}"
@@ -8,7 +9,7 @@ export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-lat
   local repo_name='X_REPO_NAME_X'
   local package_prefix='X_PACKAGE_PREFIX_X'
   local package_sufix='X_PACKAGE_SUFIX_X'
-  local package_name="X_PACKAGE_NAME_X"
+  local package_name=''
   local work_path=''
   local app_target_mode='0755'
   local app_target_owner='root'
@@ -21,6 +22,8 @@ export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-lat
     INST64_X_APP_NAME_CAPS_X_VERSION="$(bl64_vcs_github_release_get_latest "$repo_owner" "$repo_name")" ||
       return $?
   fi
+  # delete-me # Modify the following line to properly form the package name
+  package_name="${package_prefix}${INST64_X_APP_NAME_CAPS_X_VERSION}${INST64_X_APP_NAME_CAPS_X_PLATFORM}${package_sufix}"
 
   bl64_rxtx_github_get_asset "$repo_owner" "$repo_name" "$INST64_X_APP_NAME_CAPS_X_VERSION" "$package_name" "${work_path}/${package_name}" &&
     bl64_arc_open_tar "${work_path}/${package_name}" "${work_path}" ||

@@ -11,4 +11,4 @@
 # shellcheck source=SCRIPTDIR/devALIAS-set
 source ./bin/dev-set || exit 1
 
-# DeleteMe # Add update commands
+# delete-me # Add update commands

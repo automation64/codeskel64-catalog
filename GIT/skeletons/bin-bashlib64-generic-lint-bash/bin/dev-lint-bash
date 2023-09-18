@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#
+# Lint shell source code
+#
+# * Use to lint shell source code
+# * Check is done using shellcheck
+# * TestManSH is used to manage linting environment
+# * Template Version: v1.2.0
+#
+
+#
+# Imports
+#
+
+# shellcheck source=SCRIPTDIR/dev-set
+source ./bin/dev-set || exit 1
+
+#
+# Main
+#
+
+bl64_check_export 'DEV_BUILD_NAME' &&
+  bl64_check_export 'DEV_CICD_TESTMANSH' &&
+  bl64_check_export 'DEV_NAME_BUILD' &&
+  bl64_check_export 'DEV_CICD_BUILD' ||
+  exit $?
+
+"$DEV_CICD_BUILD" &&
+  "$DEV_CICD_TESTMANSH" -t -o -c "${DEV_NAME_BUILD}/${DEV_BUILD_NAME}"

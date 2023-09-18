@@ -1,4 +1,7 @@
+# Snippet: 1.0.0
+# X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_select_packages() {
+  bl64_dbg_app_show_function
   local packages=''
   local version_legacy='X_LEGACY_VERSION_X'
   local version_target=''
@@ -16,6 +19,7 @@ function inst64_X_APP_NAME_X_select_packages() {
 }
 
 function inst64_X_APP_NAME_X_install_with_pip() {
+  bl64_dbg_app_show_function
   local packages=''
 
   packages="$(inst64_X_APP_NAME_X_select_packages)" ||
@@ -27,6 +31,7 @@ function inst64_X_APP_NAME_X_install_with_pip() {
 }
 
 function inst64_X_APP_NAME_X_install_with_pipx() {
+  bl64_dbg_app_show_function
   local packages=''
 
   packages="$(inst64_X_APP_NAME_X_select_packages)" ||
@@ -56,5 +61,5 @@ export INST64_X_APP_NAME_CAPS_X_PIPX="${INST64_X_APP_NAME_CAPS_X_PIPX:-$BL64_VAR
     return 1
 
   bl64_os_check_version \
-    "${BL64_OS_UB}-20" "${BL64_OS_UB}-21" "${BL64_OS_UB}-22" &&
+    "$X_BL64_OS_ID_X" &&
     bl64_py_setup
