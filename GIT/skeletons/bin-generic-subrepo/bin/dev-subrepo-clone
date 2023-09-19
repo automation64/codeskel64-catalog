@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#
+# Clone GIT sub-repositories
+#
+# * Use when GIT submodule is not possible or needed
+# * Sub-repositories are regular GIT repositories created inside another one
+# * Template Version: v1.0.0
+#
+
+#
+# Imports
+#
+
+# shellcheck source=SCRIPTDIR/../.env
+
+# shellcheck source=SCRIPTDIR/dev-set
+source ./bin/dev-set || exit 1
+
+# shellcheck source-path=SCRIPTDIR/../lib
+source "$DEV_CICD_BASHLIB64" || exit 1
+
+#
+# Main
+#
+
+declare repo=''
+
+bl64_check_export 'DEV_SUBREPO_LIST' &&
+  bl64_check_export 'DEV_SUBREPO_ORIGIN' &&
+  bl64_check_export 'DEV_SUBREPO_ROOT' &&
+  bl64_check_directory "$DEV_SUBREPO_ROOT" ||
+  exit $?
+
+bl64_msg_show_phase 'Clone sub-repositories'
+cd "$DEV_SUBREPO_ROOT" || exit $?
+for repo in $DEV_SUBREPO_LIST; do
+  bl64_check_directory "$repo" || exit $?
+  bl64_msg_show_task "Clone sub-repository (${repo})"
+  bl64_vcs_run_git clone "${DEV_SUBREPO_CLOORIGIN{repo}.git" ||
+    exit $?
+done

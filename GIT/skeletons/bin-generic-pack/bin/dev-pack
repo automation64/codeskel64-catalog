@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#
+# Pack application for delivery
+#
+# * Use to create a distributable package of the application
+# * Template Version: v1.1.0
+#
+
+#
+# Imports
+#
+
+# shellcheck source=SCRIPTDIR/dev-set
+source ./bin/dev-set || exit 1
+# shellcheck source=SCRIPTDIR/../lib/bashlib64.bash
+source "$DEV_CICD_BASHLIB64" || exit 1
+
+#
+# Main
+#
+
+declare -i status=0
+
+bl64_check_export 'DEV_PACK_FULL_PATH' ||
+  exit $?
+
+# X_CODE_PLACEHOLDER_1_X
+
+bl64_msg_show_batch_start 'pack-app'
+bl64_msg_show_task "create distributable package (${DEV_PACK_FULL_PATH})"
+# X_CODE_PLACEHOLDER_2_X
+status=$?
+bl64_msg_show_batch_finish $status 'pack-app'
+exit $status

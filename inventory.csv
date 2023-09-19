@@ -31,7 +31,6 @@ Installer64:installer:f:install-package
 
 GHActions:bashlib64:d:_project_
 
-GIT:repo-bashlib64-generic:d:_project_
 GIT:repo-code-generic:d:_project_
 GIT:repo-helm-generic:d:_project_
 GIT:repo-terraform-module:d:_project_
