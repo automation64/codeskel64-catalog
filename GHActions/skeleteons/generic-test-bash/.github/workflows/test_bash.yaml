@@ -1,5 +1,5 @@
 ---
-# Template: 2.2.0
+# Template: 3.0.0
 name: "Test / Bash / TestManSH"
 
 on:
@@ -22,9 +22,13 @@ jobs:
         uses: "actions/checkout@main"
 
       - name: "Prepare build environment"
-        run: "./bin/dev-lib"
+        run: "./bin/dev-lib-bashlib64 && ./bin/dev-lib-testmansh"
+
+      - name: "Build app"
+        shell: 'script -q -e -c "bash {0}"'
+        run: "./bin/dev-build-bash"
 
       - name: "Run tests"
         shell: 'script -q -e -c "bash {0}"'
-        run: "./bin/dev-test"
+        run: "./bin/dev-test-bash"
 ...

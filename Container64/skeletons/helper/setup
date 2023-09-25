@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Template: 1.0.0
+# Template: 1.1.0
 #######################################
 # Container64 / Setup container image
 #
@@ -28,8 +28,9 @@
 #
 
 # Environment Definition. See docs/base-environment.md for details
-export CNT64_BASHLIB64
+export CNT64_BASHLIB64="${CNT64_BASHLIB64:-/opt/bl64/bashlib64.bash}"
 export CNT64_DEBUG="${CNT64_DEBUG:-}"
+# X_CODE_PLACEHOLDER_4_X
 
 # shellcheck source=SCRIPTDIR/../../lib/bashlib64.bash
 source "$CNT64_BASHLIB64" || { echo "Error: unable to load bashlib64 (${CNT64_BASHLIB64})" && exit 1; }
@@ -38,9 +39,13 @@ source "$CNT64_BASHLIB64" || { echo "Error: unable to load bashlib64 (${CNT64_BA
 # Globals
 #
 
+# X_CODE_PLACEHOLDER_5_X
+
 #
 # Functions
 #
+
+# X_CODE_PLACEHOLDER_3_X
 
 #######################################
 # Install application packages
@@ -56,7 +61,6 @@ source "$CNT64_BASHLIB64" || { echo "Error: unable to load bashlib64 (${CNT64_BA
 function cnt64_setup_install() {
   bl64_dbg_app_show_function
   # X_CODE_PLACEHOLDER_1_X
-  return 0
 }
 
 #######################################
@@ -72,8 +76,9 @@ function cnt64_setup_install() {
 #######################################
 function cnt64_setup_initialize() {
   bl64_dbg_app_show_function
-  # X_CODE_PLACEHOLDER_2_X
-  return 0
+# X_CODE_PLACEHOLDER_2_X
+  bl64_os_check_version "X_TARGET_OS1_X" "X_TARGET_OSN_X" &&
+    bl64_check_privilege_root
 }
 
 #
@@ -81,7 +86,6 @@ function cnt64_setup_initialize() {
 #
 
 declare cnt64_setup_installer_description='Setup Container64 image'
-declare -i cnt64_setup_status=0
 
 bl64_msg_all_enable_verbose
 bl64_msg_show_batch_start "$cnt64_setup_installer_description"
@@ -89,7 +93,5 @@ bl64_msg_show_batch_start "$cnt64_setup_installer_description"
 [[ -n "$CNT64_DEBUG" ]] && bl64_dbg_lib_enable
 cnt64_setup_initialize &&
   cnt64_setup_install
-cnt64_setup_status=$?
 
-bl64_msg_show_batch_finish "$cnt64_setup_status" "$cnt64_setup_installer_description"
-exit $cnt64_setup_status
+bl64_msg_show_batch_finish $? "$cnt64_setup_installer_description"
