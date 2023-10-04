@@ -1,4 +1,4 @@
-# Snippet: 1.0.0
+# Snippet: 1.1.0
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_install_X_TARGET_OS_X() {
   local repository_name='X_REPO_NAME_X'
@@ -17,20 +17,20 @@ function inst64_X_APP_NAME_X_install_X_TARGET_OS_X() {
   bl64_pkg_deploy $packages
 }
 
-# X_CODE_PLACEHOLDER_2_X
-
-# X_CODE_PLACEHOLDER_3_X
+function inst64_X_APP_NAME_X_install_external_packages() {
   if bl64_os_match "${X_BL64_OS_ID_X}"; then
     inst64_X_APP_NAME_X_install_X_TARGET_OS_X
   fi
-  # shellcheck disable=SC2181
-  (($? != 0)) && return 1
+}
 
-  bl64_msg_show_task 'cleanup temporary files'
-  bl64_fs_cleanup_full
-  return 0
+# X_CODE_PLACEHOLDER_2_X
+
+  inst64_X_APP_NAME_X_install_external_packages
+
+# X_CODE_PLACEHOLDER_3_X
 
 # X_CODE_PLACEHOLDER_4_X
-  bl64_os_check_version "${X_BL64_OS_ID_X}" &&
+  bl64_os_check_version \
+    "${X_BL64_OS_ID_X}" &&
     bl64_check_privilege_root &&
     bl64_pkg_setup

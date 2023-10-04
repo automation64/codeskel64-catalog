@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Template: 1.1.0
+# Template: 1.2.0
 #######################################
 # Installer64 / Package installer
 #
@@ -86,7 +86,6 @@ function inst64_X_APP_NAME_X_initialize() {
 #
 
 declare inst64_X_APP_NAME_X_installer_description='Install application: X_APP_FULL_NAME_X'
-declare -i inst64_X_APP_NAME_X_status=0
 
 bl64_msg_all_enable_verbose
 bl64_msg_show_batch_start "$inst64_X_APP_NAME_X_installer_description"
@@ -94,7 +93,4 @@ bl64_msg_show_batch_start "$inst64_X_APP_NAME_X_installer_description"
 [[ -n "$INST64_DEBUG" ]] && bl64_dbg_lib_enable
 inst64_X_APP_NAME_X_initialize &&
   inst64_X_APP_NAME_X_install
-inst64_X_APP_NAME_X_status=$?
-
-bl64_msg_show_batch_finish "$inst64_X_APP_NAME_X_status" "$inst64_X_APP_NAME_X_installer_description"
-exit $inst64_X_APP_NAME_X_status
+bl64_msg_show_batch_finish $? "$inst64_X_APP_NAME_X_installer_description"

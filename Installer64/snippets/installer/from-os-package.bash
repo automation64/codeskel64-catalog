@@ -1,4 +1,4 @@
-# Snippet: 1.1.0
+# Snippet: 1.2.0
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_select_packages() {
   bl64_dbg_app_show_function
@@ -11,6 +11,17 @@ function inst64_X_APP_NAME_X_select_packages() {
   [[ -n "$packages" ]] && echo "$packages"
 }
 
+function inst64_X_APP_NAME_X_install_os_packages() {
+  bl64_dbg_app_show_function
+  local packages=''
+
+  bl64_msg_show_task 'deploy packages'
+  packages="$(inst64_X_APP_NAME_X_select_packages)" ||
+    return $?
+  # shellcheck disable=SC2086
+  bl64_pkg_deploy $packages
+}
+
 # X_CODE_PLACEHOLDER_2_X
 # Enable development packages?
 export INST64_X_APP_NAME_CAPS_X_FLAG_DEVELOPMENT="${INST64_X_APP_NAME_CAPS_X_FLAG_DEVELOPMENT:-$BL64_VAR_OFF}"
@@ -18,24 +29,14 @@ export INST64_X_APP_NAME_CAPS_X_FLAG_DEVELOPMENT="${INST64_X_APP_NAME_CAPS_X_FLA
 export INST64_X_APP_NAME_CAPS_X_FLAG_NATIVE="${INST64_X_APP_NAME_CAPS_X_FLAG_NATIVE:-$BL64_VAR_ON}"
 
 # X_CODE_PLACEHOLDER_3_X
-  local packages=''
-
-  bl64_msg_show_task 'deploy packages'
-  packages="$(inst64_X_APP_NAME_X_select_packages)" ||
-    return $?
-  # shellcheck disable=SC2086
-  bl64_pkg_deploy $packages ||
-    return $?
-
-  bl64_msg_show_task 'cleanup temporary files'
-  bl64_fs_cleanup_full
-  return 0
+  inst64_X_APP_NAME_X_install_os_packages
 
 # X_CODE_PLACEHOLDER_4_X
   [[ "$INST64_X_APP_NAME_CAPS_X_FLAG_NATIVE" != "$BL64_VAR_ON" ]] &&
     bl64_msg_show_error 'installer supports OS native packages only' &&
     return 1
 
-  bl64_os_check_version "${X_BL64_OS_ID_X}" &&
+  bl64_os_check_version \
+    "${X_BL64_OS_ID_X}" &&
     bl64_check_privilege_root &&
     bl64_pkg_setup

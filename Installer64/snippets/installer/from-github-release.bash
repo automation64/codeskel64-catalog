@@ -1,10 +1,8 @@
-# Snippet: 1.0.0
-# X_CODE_PLACEHOLDER_2_X
-export INST64_X_APP_NAME_CAPS_X_PLATFORM="${INST64_X_APP_NAME_CAPS_X_PLATFORM:-X_APP_PLATFORM_X}"
-export INST64_X_APP_NAME_CAPS_X_TARGET="${INST64_X_APP_NAME_CAPS_X_TARGET:-${INST64_OPT_ROOT}/X_APP_NAME_X}"
-export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-latest}"
+# Snippet: 1.1.0
+# X_STAND_ALONE_FUNCTIONS_X #
 
-# X_CODE_PLACEHOLDER_3_X
+function inst64_X_APP_NAME_X_install_binary_release() {
+  bl64_dbg_app_show_function
   local repo_owner='X_REPO_OWNER_X'
   local repo_name='X_REPO_NAME_X'
   local package_prefix='X_PACKAGE_PREFIX_X'
@@ -42,7 +40,18 @@ export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-lat
   bl64_msg_show_task 'cleanup temporary files'
   bl64_fs_rm_tmpdir "$work_path"
   return 0
+}
+
+# X_CODE_PLACEHOLDER_2_X
+export INST64_X_APP_NAME_CAPS_X_PLATFORM="${INST64_X_APP_NAME_CAPS_X_PLATFORM:-X_APP_PLATFORM_X}"
+export INST64_X_APP_NAME_CAPS_X_TARGET="${INST64_X_APP_NAME_CAPS_X_TARGET:-${INST64_OPT_ROOT}/X_APP_NAME_X}"
+export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-latest}"
+
+# X_CODE_PLACEHOLDER_3_X
+  inst64_X_APP_NAME_X_install_binary_release
 
 # X_CODE_PLACEHOLDER_4_X
+  bl64_os_check_version \
+    "${X_BL64_OS_ID_X}" &&
   bl64_arc_setup &&
     bl64_check_privilege_root
