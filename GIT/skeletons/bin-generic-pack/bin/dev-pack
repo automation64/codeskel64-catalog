@@ -3,7 +3,7 @@
 # Pack application for delivery
 #
 # * Use to create a distributable package of the application
-# * Template Version: v1.1.0
+# * Template: 1.2.0
 #
 
 #
@@ -19,8 +19,6 @@ source "$DEV_CICD_BASHLIB64" || exit 1
 # Main
 #
 
-declare -i status=0
-
 bl64_check_export 'DEV_PACK_FULL_PATH' ||
   exit $?
 
@@ -29,6 +27,4 @@ bl64_check_export 'DEV_PACK_FULL_PATH' ||
 bl64_msg_show_batch_start 'pack-app'
 bl64_msg_show_task "create distributable package (${DEV_PACK_FULL_PATH})"
 # X_CODE_PLACEHOLDER_2_X
-status=$?
-bl64_msg_show_batch_finish $status 'pack-app'
-exit $status
+bl64_msg_show_batch_finish $? 'pack-app'

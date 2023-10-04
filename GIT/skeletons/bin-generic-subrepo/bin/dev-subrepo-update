@@ -4,7 +4,7 @@
 #
 # * Use when GIT submodule is not possible or needed
 # * Sub-repositories are regular GIT repositories created inside another one
-# * Template Version: v1.0.0
+# * Template: 1.1.0
 #
 
 #
@@ -30,6 +30,7 @@ bl64_check_export 'DEV_SUBREPO_LIST' &&
   bl64_check_directory "$DEV_SUBREPO_ROOT" ||
   exit $?
 
+bl64_msg_show_batch_start 'update-subrepo'
 bl64_msg_show_phase 'Update sub-repositories'
 cd "$DEV_SUBREPO_ROOT" || exit $?
 for repo in $DEV_SUBREPO_LIST; do
@@ -41,3 +42,4 @@ for repo in $DEV_SUBREPO_LIST; do
     cd .. ||
     exit $?
 done
+bl64_msg_show_batch_finish $? 'update-subrepo'

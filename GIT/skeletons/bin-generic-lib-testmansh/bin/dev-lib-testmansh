@@ -5,7 +5,7 @@
 # * Use to download or install external tools, libraries, etc
 # * Tools and libs should go to lib/
 # * Do not include operations that requires privileged access (i.e. sudo)
-# * Template Version: v2.0.0
+# * Template: 2.0.0
 #
 
 #
@@ -20,9 +20,9 @@ source "$DEV_CICD_BASHLIB64" || exit 1
 #
 # Main
 #
-
-bl64_check_export 'DEV_CICD_TESTMANSH_REPO' ||
+bl64_check_export 'DEV_CICD_TESTMANSH' &&
+  bl64_check_export 'DEV_CICD_TESTMANSH_REPO' ||
   exit $?
 
 bl64_msg_show_task 'download TestManSH'
-bl64_rxtx_web_get_file "$DEV_CICD_TESTMANSH_REPO" "$DEV_LIB" "$BL64_VAR_ON" '0777'
+bl64_rxtx_web_get_file "$DEV_CICD_TESTMANSH_REPO" "$DEV_CICD_TESTMANSH" "$BL64_VAR_ON" '0777'
