@@ -25,9 +25,8 @@ function inst64_X_APP_NAME_X_install_external_packages() {
 
 # X_CODE_PLACEHOLDER_2_X
 
-  inst64_X_APP_NAME_X_install_external_packages
-
 # X_CODE_PLACEHOLDER_3_X
+  inst64_X_APP_NAME_X_install_external_packages
 
 # X_CODE_PLACEHOLDER_4_X
   bl64_os_check_version \
