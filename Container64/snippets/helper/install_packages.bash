@@ -1,3 +1,4 @@
+# Snippet: 1.0.0
 # X_CODE_PLACEHOLDER_3_X
 
 function cnt64_setup_select_packages() {
@@ -19,10 +20,10 @@ function cnt64_setup_install_packages() {
   bl64_pkg_deploy $packages
 }
 
-# X_CODE_PLACEHOLDER_1_X
-  cnt64_setup_install_packages
-
 # X_CODE_PLACEHOLDER_2_X
   bl64_os_check_version \
     "X_TARGET_OS1_X" &&
   bl64_pkg_setup &&
+
+# X_CODE_PLACEHOLDER_1_X
+  cnt64_setup_install_packages
