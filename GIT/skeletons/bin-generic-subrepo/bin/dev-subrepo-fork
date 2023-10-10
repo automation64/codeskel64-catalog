@@ -4,7 +4,7 @@
 #
 # * Use when GIT submodule is not possible or needed
 # * Sub-repositories are regular GIT repositories created inside another one
-# * Template: 1.1.0
+# * Template: 1.2.0
 #
 
 #
@@ -31,6 +31,7 @@ bl64_check_export 'DEV_SUBREPO_LIST' &&
   bl64_check_export 'DEV_CICD_GH' ||
   exit $?
 
+bl64_msg_all_enable_verbose
 bl64_msg_show_batch_start 'fork-subrepo'
 bl64_msg_show_phase 'Fork GitHub sub-repositories'
 cd "$DEV_SUBREPO_ROOT" || exit $?

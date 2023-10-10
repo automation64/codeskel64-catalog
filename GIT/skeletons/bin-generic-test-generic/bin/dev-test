@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Run test-cases
+#
+# * Template: 1.0.0
+#
+
+#
+# Imports
+#
+
+# shellcheck source=SCRIPTDIR/dev-set
+source ./bin/dev-set || exit 1
+
+# shellcheck source=SCRIPTDIR/../lib/bashlib64.bash
+source "$DEV_CICD_BASHLIB64" || exit 1
+
+#
+# Main
+#
+
+
+bl64_msg_all_enable_verbose
+bl64_msg_show_batch_start 'X_TEST_ID_X'
+# X_PLACECHOLDER_1_X
+bl64_msg_show_batch_finish $? 'X_TEST_ID_X'
