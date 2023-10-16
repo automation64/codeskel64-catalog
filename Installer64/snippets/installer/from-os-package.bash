@@ -26,7 +26,7 @@ function inst64_X_APP_NAME_X_install_os_packages() {
 # Enable development packages?
 export INST64_X_APP_NAME_CAPS_X_DEVELOPMENT="${INST64_X_APP_NAME_CAPS_X_DEVELOPMENT:-$BL64_VAR_OFF}"
 # Installation method
-export -u INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-NATIVE}"
+export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-NATIVE}"
 
 # X_CODE_PLACEHOLDER_3_X
   inst64_X_APP_NAME_X_install_os_packages

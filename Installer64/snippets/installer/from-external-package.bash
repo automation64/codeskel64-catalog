@@ -25,7 +25,7 @@ function inst64_X_APP_NAME_X_install_external_packages() {
 
 # X_CODE_PLACEHOLDER_2_X
 # Installation method
-export -u INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-NATIVE}"
+export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-NATIVE}"
 
 # X_CODE_PLACEHOLDER_3_X
   inst64_X_APP_NAME_X_install_external_packages

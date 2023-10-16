@@ -43,7 +43,7 @@ function inst64_X_APP_NAME_X_install_with_pipx() {
 # X_CODE_PLACEHOLDER_2_X
 export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-latest}"
 # Installation method
-export -u INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-PIP}"
+export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-PIP}"
 
 # X_CODE_PLACEHOLDER_3_X
   bl64_msg_show_task 'deploy application'
@@ -59,4 +59,5 @@ export -u INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-PI
     "$X_BL64_OS_ID_X" &&
     bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' "$INST64_X_APP_NAME_CAPS_X_METHOD" \
       'PIP' 'PIPX' &&
+    bl64_check_privilege_not_root &&
     bl64_py_setup
