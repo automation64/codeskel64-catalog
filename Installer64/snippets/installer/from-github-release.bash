@@ -1,4 +1,4 @@
-# Snippet: 1.1.0
+# Snippet: 1.2.0
 # X_STAND_ALONE_FUNCTIONS_X #
 
 function inst64_X_APP_NAME_X_install_binary_release() {
@@ -34,7 +34,7 @@ function inst64_X_APP_NAME_X_install_binary_release() {
 
   bl64_msg_show_task "publish application to searchable path (${INST64_LOCAL_BIN})"
   # shellcheck disable=SC2086
-  bl64_fs_run_ln $BL64_FS_SET_LN_SYMBOLIC "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli}" "${INST64_LOCAL_BIN}/${app_cli}" ||
+  bl64_fs_create_symlink "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli}" "${INST64_LOCAL_BIN}/${app_cli}" "$BL64_VAR_ON" ||
     return $?
 
   bl64_msg_show_task 'cleanup temporary files'
