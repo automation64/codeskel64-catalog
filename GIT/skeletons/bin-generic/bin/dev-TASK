@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# X_TASK_DESCRIPTION_X
+#
+# * Template: X_TEMPLATE_VERSION_X
+#
+
+#
+# Imports
+#
+
+# shellcheck source=SCRIPTDIR/dev-set
+source ./bin/dev-set || exit 1
+# shellcheck source=SCRIPTDIR/../lib/bashlib64.bash
+source "$DEV_CICD_BASHLIB64" || exit 1
+
+#
+# Main
+#
+
+# X_CODE_PLACEHOLDER_1_X
+
+bl64_msg_all_enable_verbose
+bl64_msg_show_batch_start 'X_TASK_X'
+bl64_msg_show_task "X_TITLE_X"
+# X_CODE_PLACEHOLDER_2_X
+bl64_msg_show_batch_finish $? 'X_TASK_X'
