@@ -1,4 +1,4 @@
-# Snippet: 1.0.0
+# Snippet: 2.0.0
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_select_packages() {
   bl64_dbg_app_show_function
@@ -42,24 +42,21 @@ function inst64_X_APP_NAME_X_install_with_pipx() {
 
 # X_CODE_PLACEHOLDER_2_X
 export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-latest}"
-# Use OS native package?
-export INST64_X_APP_NAME_CAPS_X_FLAG_NATIVE="${INST64_X_APP_NAME_CAPS_X_FLAG_NATIVE:-$BL64_VAR_OFF}"
-# Use Python PIPX?
-export INST64_X_APP_NAME_CAPS_X_PIPX="${INST64_X_APP_NAME_CAPS_X_PIPX:-$BL64_VAR_OFF}"
+# Installation method
+export -u INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-PIP}"
 
 # X_CODE_PLACEHOLDER_3_X
   bl64_msg_show_task 'deploy application'
-  if [[ "$INST64_X_APP_NAME_CAPS_X_PIPX" == "$BL64_VAR_ON" ]]; then
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'PIPX' ]]; then
     inst64_X_APP_NAME_X_install_with_pipx
   else
     inst64_X_APP_NAME_X_install_with_pip
   fi
 
 # X_CODE_PLACEHOLDER_4_X
-  [[ "$INST64_X_APP_NAME_CAPS_X_FLAG_NATIVE" != "$BL64_VAR_OFF" ]] &&
-    bl64_msg_show_error 'installer supports Python modules only' &&
-    return 1
 
   bl64_os_check_version \
     "$X_BL64_OS_ID_X" &&
+    bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' "$INST64_X_APP_NAME_CAPS_X_METHOD" \
+      'PIP' 'PIPX' &&
     bl64_py_setup

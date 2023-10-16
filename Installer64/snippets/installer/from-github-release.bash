@@ -1,4 +1,4 @@
-# Snippet: 1.2.0
+# Snippet: 2.0.0
 # X_STAND_ALONE_FUNCTIONS_X #
 
 function inst64_X_APP_NAME_X_install_binary_release() {
@@ -46,6 +46,8 @@ function inst64_X_APP_NAME_X_install_binary_release() {
 export INST64_X_APP_NAME_CAPS_X_PLATFORM="${INST64_X_APP_NAME_CAPS_X_PLATFORM:-X_APP_PLATFORM_X}"
 export INST64_X_APP_NAME_CAPS_X_TARGET="${INST64_X_APP_NAME_CAPS_X_TARGET:-${INST64_OPT_ROOT}/X_APP_NAME_X}"
 export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-latest}"
+# Installation method
+export -u INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-BINARY}"
 
 # X_CODE_PLACEHOLDER_3_X
   inst64_X_APP_NAME_X_install_binary_release
@@ -53,5 +55,7 @@ export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-lat
 # X_CODE_PLACEHOLDER_4_X
   bl64_os_check_version \
     "${X_BL64_OS_ID_X}" &&
-  bl64_arc_setup &&
+    bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' "$INST64_X_APP_NAME_CAPS_X_METHOD" \
+      'BINARY' &&
+    bl64_arc_setup &&
     bl64_check_privilege_root

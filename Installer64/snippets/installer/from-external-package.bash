@@ -1,4 +1,4 @@
-# Snippet: 1.1.0
+# Snippet: 2.0.0
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_install_X_TARGET_OS_X() {
   local repository_name='X_REPO_NAME_X'
@@ -24,6 +24,8 @@ function inst64_X_APP_NAME_X_install_external_packages() {
 }
 
 # X_CODE_PLACEHOLDER_2_X
+# Installation method
+export -u INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-NATIVE}"
 
 # X_CODE_PLACEHOLDER_3_X
   inst64_X_APP_NAME_X_install_external_packages
@@ -31,5 +33,7 @@ function inst64_X_APP_NAME_X_install_external_packages() {
 # X_CODE_PLACEHOLDER_4_X
   bl64_os_check_version \
     "${X_BL64_OS_ID_X}" &&
+    bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' "$INST64_X_APP_NAME_CAPS_X_METHOD" \
+      'NATIVE' &&
     bl64_check_privilege_root &&
     bl64_pkg_setup
