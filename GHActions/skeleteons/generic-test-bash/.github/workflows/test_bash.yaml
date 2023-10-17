@@ -1,6 +1,6 @@
 ---
 # Template: 3.0.0
-name: "Test / Bash / TestManSH"
+name: "Test / Bash"
 
 on:
   pull_request:
