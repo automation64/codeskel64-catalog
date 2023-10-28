@@ -3,35 +3,5 @@
 #
 # * Format: CSV
 # * Fields: combo:collection:skeleton
-# * Last update: 24-JUN-2023
+# * Last update: 10-OCT-2023
 #
-aplatform64-role:Ansible:role-aplatform64-full
-aplatform64-role:Licenses:git-coc
-aplatform64-role:Licenses:gnu-v3
-aplatform64-role:Documentation:ansible-role-aplatform64
-git-code-generic:GIT:code-generic
-git-code-generic:Licenses:git-coc
-git-code-generic:Licenses:gnu-v3
-git-code-generic:Documentation:project-generic-readme-v2
-git-code-generic:Documentation:project-generic-changelog
-git-code-generic:Documentation:project-generic-contributing
-git-terraform-module:GIT:terraform-module
-git-terraform-module:Terraform:module-generic
-git-terraform-module:Licenses:apache-v2
-git-terraform-module:Documentation:terraform-module
-git-terraform-module:Documentation:project-generic-changelog
-git-terraform-terra4cloud64:GIT:terraform-module
-git-terraform-terra4cloud64:Terraform:module-generic
-git-terraform-terra4cloud64:Licenses:apache-v2
-git-terraform-terra4cloud64:Documentation:terraform-terra4cloud64
-git-terraform-terra4cloud64:Documentation:project-generic-changelog
-git-shellscript:GIT:generic
-git-shellscript:Licenses:git-coc
-git-shellscript:Licenses:gnu-v3
-git-shellscript:Documentation:shellscript-generic-v2
-git-shellscript:Documentation:project-generic-changelog
-git-shellscript:Documentation:project-generic-contributing
-git-helm64:GIT:helm-generic
-git-helm64:Helm:helm64
-git-helm64:Licenses:apache-v2
-git-helm64:Documentation:project-generic-changelog
