@@ -29,7 +29,9 @@ export INST64_X_APP_NAME_CAPS_X_DEVELOPMENT="${INST64_X_APP_NAME_CAPS_X_DEVELOPM
 export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-NATIVE}"
 
 # X_CODE_PLACEHOLDER_3_X
-  inst64_X_APP_NAME_X_install_os_packages
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'NATIVE' ]]; then
+    inst64_X_APP_NAME_X_install_os_packages
+  fi
 
 # X_CODE_PLACEHOLDER_4_X
   bl64_os_check_version \

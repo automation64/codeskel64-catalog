@@ -29,7 +29,9 @@ export INST64_X_APP_NAME_CAPS_X_HELM_SOURCE='X_REPO_SOURCE_X'
 export INST64_X_APP_NAME_CAPS_X_K8S_NAMESPACE='argocd'
 
 # X_CODE_PLACEHOLDER_3_X
-  inst64_X_APP_NAME_X_install_helm_chart
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'HELM' ]]; then
+    inst64_X_APP_NAME_X_install_helm_chart
+  fi
 
 # X_CODE_PLACEHOLDER_4_X
   bl64_os_check_version \

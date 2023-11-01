@@ -46,7 +46,9 @@ export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-X_A
 export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-BINARY}"
 
 # X_CODE_PLACEHOLDER_3_X
-  inst64_X_APP_NAME_X_install_custom_package
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'BINARY' ]]; then
+    inst64_X_APP_NAME_X_install_custom_package
+  fi
 
 # X_CODE_PLACEHOLDER_4_X
   bl64_os_check_version \

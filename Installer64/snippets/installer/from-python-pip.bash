@@ -49,7 +49,7 @@ export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-PIP}"
   bl64_msg_show_task 'deploy application'
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'PIPX' ]]; then
     inst64_X_APP_NAME_X_install_with_pipx
-  else
+  elif [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'PIP' ]]; then
     inst64_X_APP_NAME_X_install_with_pip
   fi
 
