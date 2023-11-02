@@ -52,7 +52,8 @@ export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-BINAR
 # X_CODE_PLACEHOLDER_4_X
   bl64_os_check_version \
     "${X_BL64_OS_ID_X}" &&
-    bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' "$INST64_X_APP_NAME_CAPS_X_METHOD" \
+    bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' \
+      "$INST64_X_APP_NAME_CAPS_X_METHOD" \
       'BINARY' &&
     bl64_arc_setup &&
     bl64_check_privilege_root
