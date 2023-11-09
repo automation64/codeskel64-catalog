@@ -1,0 +1,28 @@
+#
+# GitOps / FluxCD / Ignore files
+#
+# * Template version: 1.0.0
+#
+
+# VScode
+.vscode
+*.code-workspace
+
+# Dev libs. Dynamic content update at dev time
+lib/*
+
+# Temporary files, mostly runtime
+tmp/*
+
+# Dev scripts
+bin/*
+
+# Static data files
+data/*
+
+# CICD tests
+test/*
+
+#
+# Project specific exclusions
+#
