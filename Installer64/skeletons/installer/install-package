@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Template: 1.3.0
+# Template: 2.0.0
 #######################################
 # Installer64 / Package installer
 #
@@ -46,6 +46,7 @@ source "$INST64_BASHLIB64" || { echo 'Error: BashLib64 not found. Please run the
 #
 
 # X_CODE_PLACEHOLDER_2_X
+export INST64_X_APP_NAME_CAPS_X_PACKAGES=''
 
 #
 # Functions
@@ -64,11 +65,12 @@ source "$INST64_BASHLIB64" || { echo 'Error: BashLib64 not found. Please run the
 #######################################
 function inst64_X_APP_NAME_X_install() {
   bl64_dbg_app_show_function
+  inst64_X_APP_NAME_X_select_packages || return $?
   # X_CODE_PLACEHOLDER_3_X
 }
 
 #######################################
-# Select installation packages
+# Select installation packages and related information
 #
 # Arguments:
 #   None. Parameters are imported from Globals
@@ -80,10 +82,9 @@ function inst64_X_APP_NAME_X_install() {
 #######################################
 function inst64_X_APP_NAME_X_select_packages() {
   bl64_dbg_app_show_function
-  local packages=''
   # X_CODE_PLACEHOLDER_8_X
-  [[ -z "$packages" ]] && bl64_msg_show_error 'unable to determine package name' && return 1
-  echo "$packages"
+  [[ -z "$INST64_X_APP_NAME_CAPS_X_PACKAGES" ]] && bl64_msg_show_error 'unable to determine package name' && return 1
+  return 0
 }
 
 #######################################
