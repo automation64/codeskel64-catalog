@@ -1,4 +1,4 @@
-# Snippet: 2.0.0
+# Snippet: 2.1.0
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_select_packages() {
   bl64_dbg_app_show_function
@@ -8,7 +8,8 @@ function inst64_X_APP_NAME_X_select_packages() {
     [[ "$INST64_X_APP_NAME_CAPS_X_DEVELOPMENT" == "$BL64_VAR_ON" ]] &&
       packages="${packages} X_OS_PACKAGE_LIST_X"
   fi
-  [[ -n "$packages" ]] && echo "$packages"
+  [[ -z "$packages" ]] && bl64_msg_show_error 'unable to determine package name' && return 1
+  echo "$packages"
 }
 
 function inst64_X_APP_NAME_X_add_repository() {

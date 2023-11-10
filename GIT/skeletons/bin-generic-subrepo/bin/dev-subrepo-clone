@@ -4,7 +4,7 @@
 #
 # * Use when GIT submodule is not possible or needed
 # * Sub-repositories are regular GIT repositories created inside another one
-# * Template: 1.3.0
+# * Template: 1.4.0
 #
 
 #
@@ -27,7 +27,7 @@ export DEV_CICD_DEBUG="${DEV_CICD_DEBUG:-}"
 
 declare repo=''
 
-[[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_lib_enable
+[[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
 
 bl64_check_export 'DEV_SUBREPO_LIST' &&
   bl64_check_export 'DEV_SUBREPO_ORIGIN' &&

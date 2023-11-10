@@ -1,4 +1,4 @@
-# Snippet: 1.0.0
+# Snippet: 1.1.0
 # X_CODE_PLACEHOLDER_3_X
 
 function cnt64_setup_select_packages() {
@@ -7,7 +7,8 @@ function cnt64_setup_select_packages() {
   if bl64_os_match "${X_TARGET_OS_X}"; then
     packages="${packages} X_PACKAGE_LIST_X"
   fi
-  [[ -n "$packages" ]] && echo "$packages"
+  [[ -z "$packages" ]] && bl64_msg_show_error 'unable to determine package name' && return 1
+  echo "$packages"
 }
 
 function cnt64_setup_install_packages() {

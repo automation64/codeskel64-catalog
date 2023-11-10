@@ -22,7 +22,7 @@ export DEV_CICD_DEBUG="${DEV_CICD_DEBUG:-}"
 
 # X_CODE_PLACEHOLDER_1_X
 
-[[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_lib_enable
+[[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
 
 bl64_msg_all_enable_verbose
 bl64_msg_show_batch_start 'X_TASK_X'

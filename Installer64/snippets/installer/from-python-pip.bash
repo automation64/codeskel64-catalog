@@ -1,4 +1,4 @@
-# Snippet: 2.0.0
+# Snippet: 2.1.0
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_select_packages() {
   bl64_dbg_app_show_function
@@ -15,7 +15,8 @@ function inst64_X_APP_NAME_X_select_packages() {
     version_target="==${INST64_X_APP_NAME_CAPS_X_VERSION}.*"
   fi
   packages="X_PYTHON_MODULE_X${version_target}"
-  [[ -n "$packages" ]] && echo "$packages"
+  [[ -z "$packages" ]] && bl64_msg_show_error 'unable to determine package name' && return 1
+  echo "$packages"
 }
 
 function inst64_X_APP_NAME_X_install_with_pip() {
