@@ -6,7 +6,7 @@ function inst64_X_APP_NAME_X_install_krew_package() {
   bl64_msg_show_task 'deploy application to local kubectl'
   # shellcheck disable=SC2086
   bl64_k8s_run_kubectl_plugin \
-    "$INST64_X_APP_NAME_CAPS_X_K8S_KUBECONFIG"
+    "$INST64_X_APP_NAME_CAPS_X_K8S_KUBECONFIG" \
     krew install \
     $INST64_X_APP_NAME_CAPS_X_PACKAGES
 }
@@ -15,8 +15,8 @@ function inst64_X_APP_NAME_X_install_krew_package() {
 # Installation method
 export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-KREW}"
 
-export INST64_X_APP_NAME_CAPS_X_KREW_BIN="${HOME}/.krew/bin/kubectl-krew"
 export INST64_X_APP_NAME_CAPS_X_K8S_KUBECONFIG="${INST64_X_APP_NAME_CAPS_X_K8S_KUBECONFIG:-$BL64_VAR_DEFAULT}"
+export INST64_X_APP_NAME_CAPS_X_KREW_BIN="${HOME}/.krew/bin/kubectl-krew"
 
 
 # X_CODE_PLACEHOLDER_3_X
@@ -35,6 +35,10 @@ export INST64_X_APP_NAME_CAPS_X_K8S_KUBECONFIG="${INST64_X_APP_NAME_CAPS_X_K8S_K
 
 # X_CODE_PLACEHOLDER_6_X
   bl64_k8s_setup
+
+# X_CODE_PLACEHOLDER_7_X
+  bl64_k8s_run_kubectl_plugin "$INST64_X_APP_NAME_CAPS_X_K8S_KUBECONFIG" \
+    X_PLUGIN_X --version
 
 # X_CODE_PLACEHOLDER_8_X
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'KREW' ]]; then
