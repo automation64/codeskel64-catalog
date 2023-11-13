@@ -4,7 +4,7 @@
 #
 # * Use when GIT submodule is not possible or needed
 # * Sub-repositories are regular GIT repositories created inside another one
-# * Template: 1.4.0
+# * Template: 2.0.0
 #
 
 #
@@ -17,7 +17,7 @@
 source ./bin/dev-set || exit 1
 
 # shellcheck source-path=SCRIPTDIR/../lib
-source "$DEV_CICD_BASHLIB64" || exit 1
+source "${DEV_CICD_BASHLIB64}/bashlib64-core.bash" || exit 1
 
 export DEV_CICD_DEBUG="${DEV_CICD_DEBUG:-}"
 

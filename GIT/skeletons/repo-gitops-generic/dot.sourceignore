@@ -1,3 +1,4 @@
+# ** ACTION REQUIRED: this is a template file. Copy to .sourceignore and remove this line **
 #
 # GitOps / FluxCD / Ignore files
 #
@@ -7,6 +8,7 @@
 # VScode
 .vscode
 *.code-workspace
+.devcontainer
 
 # Dev libs. Dynamic content update at dev time
 lib/*
