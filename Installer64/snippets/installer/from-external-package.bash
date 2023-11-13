@@ -1,17 +1,5 @@
-# Snippet: 2.1.0
+# Snippet: 3.0.0
 # X_STAND_ALONE_FUNCTIONS_X #
-function inst64_X_APP_NAME_X_select_packages() {
-  bl64_dbg_app_show_function
-  local packages=''
-  if bl64_os_match "${X_BL64_OS_ID_X}"; then
-    packages='X_OS_PACKAGE_LIST_X'
-    [[ "$INST64_X_APP_NAME_CAPS_X_DEVELOPMENT" == "$BL64_VAR_ON" ]] &&
-      packages="${packages} X_OS_PACKAGE_LIST_X"
-  fi
-  [[ -z "$packages" ]] && bl64_msg_show_error 'unable to determine package name' && return 1
-  echo "$packages"
-}
-
 function inst64_X_APP_NAME_X_add_repository() {
   bl64_dbg_app_show_function
   local repository_url=''
@@ -38,16 +26,9 @@ function inst64_X_APP_NAME_X_add_repository() {
 
 function inst64_X_APP_NAME_X_install_external_packages() {
   bl64_dbg_app_show_function
-  local packages=''
-
-  inst64_X_APP_NAME_X_add_repository ||
-    return $?
-
   bl64_msg_show_task 'deploy packages'
-  packages="$(inst64_X_APP_NAME_X_select_packages)" ||
-    return $?
   # shellcheck disable=SC2086
-  bl64_pkg_deploy $packages
+  bl64_pkg_deploy $INST64_X_APP_NAME_CAPS_X_PACKAGES
 }
 
 # X_CODE_PLACEHOLDER_2_X
@@ -72,3 +53,15 @@ export INST64_X_APP_NAME_CAPS_X_REPOSITORY_KEY_X_REPO_TYPE_CAPS_X='X_KEY_URL_X'
       'EXTERNAL' &&
     bl64_check_privilege_root &&
     bl64_pkg_setup
+
+# X_CODE_PLACEHOLDER_6_X
+  inst64_X_APP_NAME_X_add_repository
+
+# X_CODE_PLACEHOLDER_8_X
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'EXTERNAL' ]]; then
+    if bl64_os_match "${X_BL64_OS_ID_X}"; then
+      INST64_X_APP_NAME_CAPS_X_PACKAGES='X_OS_PACKAGE_LIST_X'
+      [[ "$INST64_X_APP_NAME_CAPS_X_DEVELOPMENT" == "$BL64_VAR_ON" ]] &&
+        INST64_X_APP_NAME_CAPS_X_PACKAGES="${INST64_X_APP_NAME_CAPS_X_PACKAGES} X_OS_PACKAGE_LIST_X"
+    fi
+  fi

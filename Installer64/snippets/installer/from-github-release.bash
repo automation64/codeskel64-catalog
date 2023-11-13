@@ -9,7 +9,6 @@ function inst64_X_APP_NAME_X_install_binary_release() {
 
   bl64_msg_show_task 'download application'
   work_path="$(bl64_fs_create_tmpdir)" || return $?
-
   bl64_rxtx_github_get_asset \
     "$INST64_X_APP_NAME_CAPS_X_REPO_OWNER" "$INST64_X_APP_NAME_CAPS_X_REPO_NAME" "$INST64_X_APP_NAME_CAPS_X_VERSION" "$INST64_X_APP_NAME_CAPS_X_PACKAGES" "${work_path}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}" &&
     bl64_arc_open_tar "${work_path}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}" "${work_path}" ||
@@ -37,7 +36,6 @@ export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-lat
 # Installation method
 export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-BINARY}"
 
-export INST64_X_APP_NAME_CAPS_X_CLI_NAME='X_CLI_NAME_X'
 export INST64_X_APP_NAME_CAPS_X_REPO_NAME='X_REPO_NAME_X'
 export INST64_X_APP_NAME_CAPS_X_REPO_OWNER='X_REPO_OWNER_X'
 

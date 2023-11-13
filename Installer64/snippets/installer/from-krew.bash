@@ -2,7 +2,6 @@
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_install_krew_package() {
   bl64_dbg_app_show_function
-
   bl64_msg_show_task 'deploy application to local kubectl'
   # shellcheck disable=SC2086
   bl64_k8s_run_kubectl_plugin \
@@ -17,7 +16,6 @@ export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-KREW}
 
 export INST64_X_APP_NAME_CAPS_X_K8S_KUBECONFIG="${INST64_X_APP_NAME_CAPS_X_K8S_KUBECONFIG:-$BL64_VAR_DEFAULT}"
 export INST64_X_APP_NAME_CAPS_X_KREW_BIN="${HOME}/.krew/bin/kubectl-krew"
-export INST64_X_APP_NAME_CAPS_X_CLI_NAME='X_PLUGIN_X'
 
 # X_CODE_PLACEHOLDER_3_X
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'KREW' ]]; then

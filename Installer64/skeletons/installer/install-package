@@ -54,6 +54,7 @@ source "${INST64_BASHLIB64}/bashlib64.bash" ||
 
 # X_CODE_PLACEHOLDER_2_X
 export INST64_X_APP_NAME_CAPS_X_PACKAGES=''
+export INST64_X_APP_NAME_CAPS_X_CLI_NAME='X_CLI_NAME_X'
 
 #
 # Functions

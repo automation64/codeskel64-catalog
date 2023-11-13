@@ -2,33 +2,28 @@
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_install_binary_release() {
   bl64_dbg_app_show_function
-  local package_prefix='X_PACKAGE_PREFIX_X'
-  local package_sufix='X_PACKAGE_SUFIX_X'
-  local package_name="X_PACKAGE_NAME_X"
-# example #  local package_name="${package_prefix}_${INST64_X_APP_NAME_CAPS_X_VERSION}_${INST64_X_APP_NAME_CAPS_X_PLATFORM}.${package_sufix}"
-  local package_url="X_PACKAGE_URL_X"
-# example #  local package_url="${INST64_X_APP_NAME_CAPS_X_SOURCE}/v${INST64_X_APP_NAME_CAPS_X_VERSION}"
   local work_path=''
   local app_target_mode='0755'
   local app_target_owner='root'
   local app_cli_mode='0755'
-  local app_cli='X_APP_CLI_X'
 
   bl64_msg_show_task 'download application'
   work_path="$(bl64_fs_create_tmpdir)" || return $?
-  bl64_rxtx_web_get_file "${package_url}/${package_name}" "${work_path}/${package_name}" &&
-# example #    bl64_arc_open_tar "${work_path}/${package_name}" "${work_path}" ||
-# example #    bl64_arc_open_zip "${work_path}/${package_name}" "${work_path}" ||
+  bl64_rxtx_web_get_file "${INST64_X_APP_NAME_CAPS_X_PACKAGE_URL}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}" "${work_path}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}" &&
+# example #    bl64_arc_open_tar "${work_path}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}" "${work_path}" ||
+# example #    bl64_arc_open_zip "${work_path}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}" "${work_path}" ||
     return $?
 
   bl64_msg_show_task 'deploy application'
   bl64_fs_create_dir "$app_target_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" &&
-    bl64_fs_copy_files "$app_cli_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" "${work_path}/${app_cli}" ||
+    bl64_fs_copy_files \
+      "$app_cli_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" "${work_path}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" ||
     return $?
 
   bl64_msg_show_task "publish application to searchable path (${INST64_LOCAL_BIN})"
   # shellcheck disable=SC2086
-  bl64_fs_create_symlink "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli}" "${INST64_LOCAL_BIN}/${app_cli}" "$BL64_VAR_ON" ||
+  bl64_fs_create_symlink \
+      "${INST64_X_APP_NAME_CAPS_X_TARGET}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" "$BL64_VAR_ON" ||
     return $?
 
   bl64_msg_show_task 'cleanup temporary files'
@@ -44,6 +39,8 @@ export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-X_A
 # Installation method
 export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-BINARY}"
 
+export INST64_X_APP_NAME_CAPS_X_PACKAGE_URL=''
+
 # X_CODE_PLACEHOLDER_3_X
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'BINARY' ]]; then
     inst64_X_APP_NAME_X_install_binary_release
@@ -55,5 +52,19 @@ export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-BINAR
     bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' \
       "$INST64_X_APP_NAME_CAPS_X_METHOD" \
       'BINARY' &&
-    bl64_arc_setup &&
     bl64_check_privilege_root
+
+# X_CODE_PLACEHOLDER_6_X
+  bl64_arc_setup
+
+# X_CODE_PLACEHOLDER_8_X
+  local package_prefix=''
+  local package_sufix=''
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'BINARY' ]]; then
+    package_prefix='X_PACKAGE_PREFIX_X'
+    package_sufix='X_PACKAGE_SUFIX_X'
+    # delete-me # Modify the following line to properly form the package name
+    INST64_X_APP_NAME_CAPS_X_PACKAGES="${package_prefix}${INST64_X_APP_NAME_CAPS_X_VERSION}${INST64_X_APP_NAME_CAPS_X_PLATFORM}${package_sufix}"
+    # delete-me # Modify the following line to properly form the package url
+    INST64_X_APP_NAME_CAPS_X_PACKAGE_URL="${INST64_X_APP_NAME_CAPS_X_SOURCE}/v${INST64_X_APP_NAME_CAPS_X_VERSION}"
+  fi
