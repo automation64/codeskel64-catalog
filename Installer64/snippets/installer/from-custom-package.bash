@@ -1,10 +1,11 @@
-# Snippet: 3.0.0
+# Snippet: 3.1.0
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_install_custom_package() {
   bl64_dbg_app_show_function
   local work_path=''
   local app_target_mode='0755'
   local app_target_owner='root'
+  local app_cli_source="${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
 
   bl64_msg_show_task 'download application'
   work_path="$(bl64_fs_create_tmpdir)" || return $?
@@ -22,7 +23,7 @@ function inst64_X_APP_NAME_X_install_custom_package() {
   bl64_msg_show_task "publish application to searchable path (${INST64_LOCAL_BIN})"
   # shellcheck disable=SC2086
   bl64_fs_create_symlink \
-      "${INST64_X_APP_NAME_CAPS_X_TARGET}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" "$BL64_VAR_ON" ||
+      "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli_source}" "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" "$BL64_VAR_ON" ||
     return $?
 
   bl64_msg_show_task 'cleanup temporary files'
@@ -56,6 +57,9 @@ export INST64_X_APP_NAME_CAPS_X_INSTALLER=''
 
 # X_CODE_PLACEHOLDER_6_X
   bl64_arc_setup
+
+# X_CODE_PLACEHOLDER_7_X
+# example # "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" --help > /dev/null
 
 # X_CODE_PLACEHOLDER_8_X
   local package_prefix=''

@@ -6,6 +6,7 @@ function inst64_X_APP_NAME_X_install_binary_release() {
   local app_target_mode='0755'
   local app_target_owner='root'
   local app_cli_mode='0755'
+  local app_cli_source="${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
 
   bl64_msg_show_task 'download application'
   work_path="$(bl64_fs_create_tmpdir)" || return $?
@@ -16,12 +17,12 @@ function inst64_X_APP_NAME_X_install_binary_release() {
 
   bl64_msg_show_task 'deploy application'
   bl64_fs_create_dir "$app_target_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" &&
-    bl64_fs_copy_files "$app_cli_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" "${work_path}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" ||
+    bl64_fs_copy_files "$app_cli_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" "${work_path}/${app_cli_source}" ||
     return $?
 
   bl64_msg_show_task "publish application to searchable path (${INST64_LOCAL_BIN})"
   # shellcheck disable=SC2086
-  bl64_fs_create_symlink "${INST64_X_APP_NAME_CAPS_X_TARGET}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" "$BL64_VAR_ON" ||
+  bl64_fs_create_symlink "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli_source}" "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" "$BL64_VAR_ON" ||
     return $?
 
   bl64_msg_show_task 'cleanup temporary files'
@@ -54,6 +55,9 @@ export INST64_X_APP_NAME_CAPS_X_REPO_OWNER='X_REPO_OWNER_X'
 
 # X_CODE_PLACEHOLDER_6_X
   bl64_arc_setup
+
+# X_CODE_PLACEHOLDER_7_X
+# example # "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" --help > /dev/null
 
 # X_CODE_PLACEHOLDER_8_X
   local package_prefix=''

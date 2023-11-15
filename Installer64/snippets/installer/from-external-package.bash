@@ -57,6 +57,9 @@ export INST64_X_APP_NAME_CAPS_X_REPOSITORY_KEY_X_REPO_TYPE_CAPS_X='X_KEY_URL_X'
 # X_CODE_PLACEHOLDER_6_X
   inst64_X_APP_NAME_X_add_repository
 
+# X_CODE_PLACEHOLDER_7_X
+# example # "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" --help > /dev/null
+
 # X_CODE_PLACEHOLDER_8_X
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'EXTERNAL' ]]; then
     if bl64_os_match "${X_BL64_OS_ID_X}"; then
