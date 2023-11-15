@@ -72,4 +72,3 @@ export INST64_X_APP_NAME_CAPS_X_REPO_OWNER='X_REPO_OWNER_X'
     # delete-me # Modify the following line to properly form the package name
     INST64_X_APP_NAME_CAPS_X_PACKAGES="${package_prefix}${INST64_X_APP_NAME_CAPS_X_VERSION}${INST64_X_APP_NAME_CAPS_X_PLATFORM}${package_sufix}"
   fi
-
