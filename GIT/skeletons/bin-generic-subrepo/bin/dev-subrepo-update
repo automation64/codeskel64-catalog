@@ -18,7 +18,6 @@ source ./bin/dev-set || exit 1
 # shellcheck source-path=SCRIPTDIR/../lib/bl64
 source "${DEV_CICD_BASHLIB64}/bashlib64.bash" || exit 1
 
-
 #
 # Main
 #
