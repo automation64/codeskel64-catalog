@@ -2,8 +2,8 @@
 
 declare X_APP_NAMESPACE_X_debug="$BL64_DBG_TARGET_NONE"
 declare X_APP_NAMESPACE_X_verbose="$BL64_MSG_VERBOSE_APP"
-declare X_APP_NAMESPACE_X_option=''
 declare X_APP_NAMESPACE_X_command="$BL64_VAR_NULL"
+declare X_APP_NAMESPACE_X_option=''
 declare X_APP_NAMESPACE_X_X_OPTION_X=''
 declare X_APP_NAMESPACE_X_X_FLAG_X='0'
 
