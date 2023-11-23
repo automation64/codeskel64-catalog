@@ -24,19 +24,20 @@ declare repo=''
 
 [[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
 
-bl64_check_export 'DEV_SUBREPO_LIST' &&
-  bl64_check_export 'DEV_SUBREPO_ROOT' &&
-  bl64_check_export 'DEV_SUBREPO_UPSTREAM' &&
+bl64_check_export 'DEV_CICD_SUBREPO_LIST' &&
+  bl64_check_export 'DEV_CICD_SUBREPO_ROOT' &&
+  bl64_check_export 'DEV_CICD_SUBREPO_UPSTREAM_URL' &&
   bl64_check_export 'DEV_CICD_GH' ||
+  bl64_check_command "$DEV_CICD_GH" ||
   exit $?
 
 bl64_msg_all_enable_verbose
 bl64_msg_show_batch_start 'fork-subrepo'
 bl64_msg_show_phase 'Fork GitHub sub-repositories'
-cd "$DEV_SUBREPO_ROOT" || exit $?
-for repo in $DEV_SUBREPO_LIST; do
+cd "$DEV_CICD_SUBREPO_ROOT" || exit $?
+for repo in $DEV_CICD_SUBREPO_LIST; do
   bl64_msg_show_task "Fork sub-repository (${repo})"
-  "$DEV_CICD_GH" repo fork --clone --remote "${DEV_SUBREPO_UPSTREAM}/${repo}.git" ||
+  "$DEV_CICD_GH" repo fork --clone --remote "${DEV_CICD_SUBREPO_UPSTREAM_URL}/${repo}.git" ||
     exit $?
 done
 bl64_msg_show_batch_finish $? 'fork-subrepo'
