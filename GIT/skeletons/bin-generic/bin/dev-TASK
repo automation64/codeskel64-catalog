@@ -2,7 +2,7 @@
 #
 # X_TASK_DESCRIPTION_X
 #
-# * Template: X_TEMPLATE_VERSION_X
+# * Template: 1.0.0
 #
 
 #
@@ -11,16 +11,12 @@
 
 # shellcheck source=SCRIPTDIR/dev-set
 source ./bin/dev-set || exit 1
-# shellcheck source=SCRIPTDIR/../lib/bl64
+# shellcheck source-path=SCRIPTDIR/../lib/bl64
 source "${DEV_CICD_BASHLIB64}/bashlib64-core.bash" || exit 1
-
-export DEV_CICD_DEBUG="${DEV_CICD_DEBUG:-}"
 
 #
 # Main
 #
-
-# X_CODE_PLACEHOLDER_1_X
 
 [[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
 

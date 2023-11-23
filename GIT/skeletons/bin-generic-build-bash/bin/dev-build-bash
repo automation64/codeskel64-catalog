@@ -12,10 +12,9 @@
 
 # shellcheck source=SCRIPTDIR/dev-set
 source ./bin/dev-set || exit 1
-# shellcheck source=SCRIPTDIR/../lib/bl64
+# shellcheck source-path=SCRIPTDIR/../lib/bl64
 source "${DEV_CICD_BASHLIB64}/bashlib64.bash" || exit 1
 
-export DEV_CICD_DEBUG="${DEV_CICD_DEBUG:-}"
 
 #
 # Main
