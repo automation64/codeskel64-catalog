@@ -1,0 +1,5 @@
+# delete-me # Add to the .local file
+
+# X_TASK_NAME_X / X_Section_X
+DEV_CICD_X_UPPER_TASK_X_X_VARIABLE_X="X_VALUE_X"
+export DEV_CICD_X_UPPER_TASK_X_X_VARIABLE_X

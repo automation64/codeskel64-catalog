@@ -2,7 +2,7 @@
 #
 # Create branch from main
 #
-# * Template: 1.0.0
+# * Template: 1.0.1
 #
 
 #
@@ -12,20 +12,18 @@
 # shellcheck source=SCRIPTDIR/dev-set
 source ./bin/dev-set || exit 1
 # shellcheck source-path=SCRIPTDIR/../lib/bl64
-source "${DEV_CICD_BASHLIB64}/bashlib64.bash" ||
-  exit 1
-
+source "${DEV_CICD_BASHLIB64}/bashlib64.bash" || exit 1
 
 #
 # Main
 #
 
-declare branch_name="${1:-feature/update}"
+declare dev_repo_branch_name="${1:-feature/update}"
 
 [[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
 
 bl64_check_export 'DEV_CICD_BRANCH_MAIN' &&
-  bl64_check_parameter 'branch_name' &&
+  bl64_check_parameter 'dev_repo_branch_name' &&
   bl64_vcs_setup ||
   exit $?
 
@@ -39,6 +37,6 @@ bl64_ui_ask_confirmation 'The requested action will delete the branch. Please ve
   bl64_vcs_run_git pull "$DEV_CICD_REPO_UPSTREAM_NAME" "$DEV_CICD_BRANCH_MAIN" &&
   bl64_msg_show_task "push latest changes to origin (${DEV_CICD_REPO_ORIGIN_NAME})" &&
   bl64_vcs_run_git push "$DEV_CICD_REPO_ORIGIN_NAME" "$DEV_CICD_BRANCH_MAIN" &&
-  bl64_msg_show_task "delete local branch (${branch_name})" &&
-  bl64_vcs_run_git branch -d "$branch_name"
+  bl64_msg_show_task "delete local branch (${dev_repo_branch_name})" &&
+  bl64_vcs_run_git branch -d "$dev_repo_branch_name"
 bl64_msg_show_batch_finish $? 'repo-branch-close'

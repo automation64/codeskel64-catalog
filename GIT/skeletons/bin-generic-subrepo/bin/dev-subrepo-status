@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 #
-# Clone GIT sub-repositories
+# Show GIT sub-repositories status
 #
-# * Use when GIT submodule is not possible or needed
-# * Sub-repositories are regular GIT repositories created inside another one
-# * Template: 2.0.1
+# * Template: 1.0.0
 #
 
 #
@@ -25,17 +23,19 @@ declare dev_subrepo_repository_name=''
 [[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
 
 bl64_check_export 'DEV_CICD_SUBREPO_LIST' &&
-  bl64_check_export 'DEV_CICD_SUBREPO_ORIGIN_URL' &&
   bl64_check_export 'DEV_CICD_SUBREPO_ROOT' &&
   bl64_check_directory "$DEV_CICD_SUBREPO_ROOT" ||
   exit $?
 
 bl64_msg_all_enable_verbose
-bl64_msg_show_batch_start 'subrepo-clone'
+bl64_msg_show_batch_start 'subrepo-status'
 cd "$DEV_CICD_SUBREPO_ROOT" || exit $?
 for dev_subrepo_repository_name in $DEV_CICD_SUBREPO_LIST; do
-  bl64_msg_show_task "Clone sub-repository (${dev_subrepo_repository_name})"
-  bl64_vcs_run_git clone "${DEV_CICD_SUBREPO_ORIGIN_URL}/${dev_subrepo_repository_name}.git" ||
+  bl64_check_directory "$dev_subrepo_repository_name" || exit $?
+  bl64_msg_show_task "Show GIT repository status (${dev_subrepo_repository_name})"
+  cd "$dev_subrepo_repository_name" &&
+    bl64_vcs_run_git status --verbose --long &&
+    cd .. ||
     exit $?
 done
-bl64_msg_show_batch_finish $? 'subrepo-clone'
+bl64_msg_show_batch_finish $? 'subrepo-status'
