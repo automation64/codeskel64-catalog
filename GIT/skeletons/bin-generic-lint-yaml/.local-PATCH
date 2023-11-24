@@ -1,0 +1,5 @@
+# delete-me # Add to the .local file
+
+# Lint / YAML / Command
+DEV_CICD_LINT_YAML_BIN="/usr/bin/yamllint"
+export DEV_CICD_LINT_YAML_BIN

@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#
+# Lint YAML code
+#
+# * Check is done using yamllint
+# * Template: 1.0.0
+#
+
+#
+# Imports
+#
+
+# shellcheck source=SCRIPTDIR/dev-set
+source ./bin/dev-set || exit 1
+# shellcheck source-path=SCRIPTDIR/../lib/bl64
+source "${DEV_CICD_BASHLIB64}/bashlib64-core.bash" || exit 1
+
+#
+# Globals
+#
+
+export YAMLLINT_CONFIG_FILE="$DEV_CICD_LINT_YAML_CFG"
+
+#
+# Main
+#
+
+declare target="${1:-$DEV_CICD_LINT_YAML_TARGET}"
+
+[[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
+
+bl64_check_parameter 'target' &&
+  bl64_check_export 'DEV_CICD_LINT_YAML_CFG' &&
+  bl64_check_export 'DEV_CICD_LINT_YAML_TARGET' &&
+  bl64_check_export 'DEV_CICD_LINT_YAML_BIN' &&
+  bl64_check_command "$DEV_CICD_LINT_YAML_BIN" &&
+  bl64_check_directory "$target" ||
+  exit $?
+
+bl64_msg_show_batch_start 'yaml-lint'
+bl64_msg_show_phase "YAML lint target (${target})"
+"$DEV_CICD_LINT_YAML_BIN" "$target"
+bl64_msg_show_batch_finish $? 'yaml-lint'
