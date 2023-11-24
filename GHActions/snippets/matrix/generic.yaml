@@ -1,0 +1,14 @@
+jobs:
+  test-installers:
+    runs-on: "ubuntu-latest"
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - "X_VALUE1_X"
+          - "X_VALUE2_X"
+          - "X_VALUEN_X"
+# example #    steps:
+# example #      - name: "Run tests"
+# example #        run: "./bin/dev-test-installers ${{matrix.target}}"
+...
