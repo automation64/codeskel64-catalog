@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Template: 1.3.0
+# Template: 1.4.0
 #######################################
 # Container64 / Setup container image
 #
@@ -28,12 +28,13 @@
 #
 
 # Environment Definition. See docs/base-environment.md for details
-export CNT64_BASHLIB64="${CNT64_BASHLIB64:-/opt/bl64/bashlib64.bash}"
+export CNT64_BASHLIB64="${CNT64_BASHLIB64:-/opt/bl64}"
 export CNT64_DEBUG="${CNT64_DEBUG:-}"
+export CNT64_USER
 # X_CODE_PLACEHOLDER_4_X
 
 # shellcheck source=SCRIPTDIR/../../lib/bashlib64.bash
-source "$CNT64_BASHLIB64" || { echo "Error: unable to load bashlib64 (${CNT64_BASHLIB64})" && exit 1; }
+source "${CNT64_BASHLIB64}/bashlib64.bash" || { echo "Error: unable to load bashlib64 (${CNT64_BASHLIB64})" && exit 1; }
 
 #
 # Globals
