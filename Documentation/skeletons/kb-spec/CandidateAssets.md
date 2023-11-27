@@ -22,6 +22,8 @@
 
 ### All
 
+**(Last Update: DD-MONTH-YY)**
+
 | Item                | <PRODUCT1> | <PRODUCTX> |
 | ------------------- | ---------- | ---------- |
 | GitHub Stars (k)    |            |            |
