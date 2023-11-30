@@ -1,4 +1,3 @@
-# ** ACTION REQUIRED: this is a template file. Copy to .sourceignore and remove this line **
 #
 # GitOps / FluxCD / Ignore files
 #
@@ -24,6 +23,9 @@ data/*
 
 # CICD tests
 test/*
+
+# Ignore placeholder
+var/fluxcd/*/*/.gitkeep
 
 #
 # Project specific exclusions

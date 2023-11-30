@@ -1,7 +1,7 @@
 #
 # GIT Ignore
 #
-# * Template version: 1.0.1
+# * Template version: 1.0.2
 #
 
 .tmp/*
@@ -23,9 +23,9 @@ lib/*
 # Local variables
 .local
 
-# Keep placeholder for empty directories
-!/**/.gitkeep
-
 #
 # Project specific exclusions
 #
+
+# Keep placeholder for empty directories
+!/**/.gitkeep
