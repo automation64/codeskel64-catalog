@@ -4,16 +4,16 @@
 #
 # * Use when GIT submodule is not possible or needed
 # * Sub-repositories are regular GIT repositories created inside another one
-# * Template: 2.0.1
+# * Template: 2.0.2
 #
 
 #
 # Imports
 #
 
-# shellcheck source=SCRIPTDIR/dev-set
+# shellcheck source=bin/dev-set
 source ./bin/dev-set || exit 1
-# shellcheck source-path=SCRIPTDIR/../lib/bl64
+# shellcheck source=lib/bl64/bashlib64.bash
 source "${DEV_CICD_BASHLIB64}/bashlib64.bash" || exit 1
 
 #
