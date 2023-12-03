@@ -1,4 +1,4 @@
-# Snippet: 2.0.0
+# Snippet: 2.1.0
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_install_binary_release() {
   bl64_dbg_app_show_function
@@ -57,7 +57,9 @@ export INST64_X_APP_NAME_CAPS_X_REPO_OWNER='X_REPO_OWNER_X'
   bl64_arc_setup
 
 # X_VERIFY_PLACEHOLDER_X
-# example # "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" --help > /dev/null
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'BINARY' ]]; then
+    # example # "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" --version
+  fi
 
 # X_SELECT_PKG_PLACEHOLDER_X
   local package_prefix=''

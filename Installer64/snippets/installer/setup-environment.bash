@@ -33,3 +33,6 @@ X_SHELL_VAR_DECLARATIONS_X
 ' >"$destination" &&
     bl64_fs_run_chmod "$mode" "$destination"
 }
+
+# X_MAIN_PLACEHOLDER_X
+  inst64_X_APP_NAME_X_setup &&
