@@ -12,13 +12,13 @@ function inst64_X_APP_NAME_X_install_with_pipx() {
   pipx install "$INST64_X_APP_NAME_CAPS_X_PACKAGES"
 }
 
-# X_CODE_PLACEHOLDER_2_X
+# X_GLOBALS_PLACEHOLDER_X
 # Installation method
 export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-PIP}"
 export INST64_X_APP_NAME_CAPS_X_VERSION="${INST64_X_APP_NAME_CAPS_X_VERSION:-latest}"
 export INST64_X_APP_NAME_CAPS_X_PIPX_BIN='/usr/bin/pipx'
 
-# X_CODE_PLACEHOLDER_3_X
+# X_INSTALL_PLACEHOLDER_X
   bl64_msg_show_task 'deploy application'
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'PIPX' ]]; then
     inst64_X_APP_NAME_X_install_with_pipx
@@ -26,7 +26,7 @@ export INST64_X_APP_NAME_CAPS_X_PIPX_BIN='/usr/bin/pipx'
     inst64_X_APP_NAME_X_install_with_pip
   fi
 
-# X_CODE_PLACEHOLDER_4_X
+# X_INIT_PLACEHOLDER_X
   bl64_os_check_version \
     "$X_BL64_OS_ID_X" &&
     bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' \
@@ -35,10 +35,10 @@ export INST64_X_APP_NAME_CAPS_X_PIPX_BIN='/usr/bin/pipx'
     bl64_check_privilege_not_root &&
     bl64_check_command "$INST64_X_APP_NAME_CAPS_X_PIPX_BIN"
 
-# X_CODE_PLACEHOLDER_6_X
+# X_PREPARE_PLACEHOLDER_X
   bl64_py_setup
 
-# X_CODE_PLACEHOLDER_8_X
+# X_SELECT_PKG_PLACEHOLDER_X
   local version_legacy='X_LEGACY_VERSION_X'
   local version_target=''
 

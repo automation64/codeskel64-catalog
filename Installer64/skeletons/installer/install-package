@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Template: 2.0.0
+# Template: 2.0.1
 #######################################
 # Installer64 / Package installer
 #
@@ -40,17 +40,17 @@ export INST64_OPT_ROOT="${INST64_OPT_ROOT:-/opt}"
 # Location for temporary files
 export INST64_TMP="${INST64_TMP:-/tmp}"
 
-# shellcheck source-path=SCRIPTDIR/../lib/bl64
+# shellcheck source=lib/bl64/bashlib64.bash
 source "${INST64_BASHLIB64}/bashlib64.bash" ||
   { echo 'Error: BashLib64 not found. Please run the install-bashlib64 script and retry.' && exit 1; }
 
-# X_CODE_PLACEHOLDER_1_X
+# X_IMPORTS_PLACEHOLDER_X
 
 #
 # Globals
 #
 
-# X_CODE_PLACEHOLDER_2_X
+# X_GLOBALS_PLACEHOLDER_X
 export INST64_X_APP_NAME_CAPS_X_PACKAGES=''
 export INST64_X_APP_NAME_CAPS_X_CLI_NAME='X_CLI_NAME_X'
 
@@ -72,7 +72,7 @@ export INST64_X_APP_NAME_CAPS_X_CLI_NAME='X_CLI_NAME_X'
 function inst64_X_APP_NAME_X_install() {
   bl64_dbg_app_show_function
   inst64_X_APP_NAME_X_select_packages || return $?
-  # X_CODE_PLACEHOLDER_3_X
+  # X_INSTALL_PLACEHOLDER_X
 }
 
 #######################################
@@ -88,7 +88,7 @@ function inst64_X_APP_NAME_X_install() {
 #######################################
 function inst64_X_APP_NAME_X_select_packages() {
   bl64_dbg_app_show_function
-  # X_CODE_PLACEHOLDER_8_X
+  # X_SELECT_PKG_PLACEHOLDER_X
   [[ -z "$INST64_X_APP_NAME_CAPS_X_PACKAGES" ]] && bl64_msg_show_error 'unable to determine package name' && return 1
   return 0
 }
@@ -107,7 +107,7 @@ function inst64_X_APP_NAME_X_select_packages() {
 function inst64_X_APP_NAME_X_prepare() {
   bl64_dbg_app_show_function
   bl64_msg_show_task 'prepare deployment'
-  # X_CODE_PLACEHOLDER_6_X
+  # X_PREPARE_PLACEHOLDER_X
 }
 
 #######################################
@@ -124,7 +124,7 @@ function inst64_X_APP_NAME_X_prepare() {
 function inst64_X_APP_NAME_X_verify() {
   bl64_dbg_app_show_function
   bl64_msg_show_task 'verify deployment'
-  # X_CODE_PLACEHOLDER_7_X
+  # X_VERIFY_PLACEHOLDER_X
 }
 
 #######################################
@@ -140,7 +140,7 @@ function inst64_X_APP_NAME_X_verify() {
 #######################################
 function inst64_X_APP_NAME_X_initialize() {
   bl64_dbg_app_show_function
-  # X_CODE_PLACEHOLDER_4_X
+  # X_INIT_PLACEHOLDER_X
 }
 
 #
@@ -156,6 +156,7 @@ bl64_msg_show_batch_start "$inst64_X_APP_NAME_X_installer_description"
 inst64_X_APP_NAME_X_initialize &&
   inst64_X_APP_NAME_X_prepare &&
   inst64_X_APP_NAME_X_install &&
+  inst64_X_APP_NAME_X_setup &&
   inst64_X_APP_NAME_X_verify
-# X_CODE_PLACEHOLDER_5_X
+# X_MAIN_PLACEHOLDER_X
 bl64_msg_show_batch_finish $? "$inst64_X_APP_NAME_X_installer_description"

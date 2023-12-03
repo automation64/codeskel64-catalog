@@ -61,7 +61,7 @@ source "${CNT64_BASHLIB64}/bashlib64.bash" || { echo "Error: unable to load bash
 #######################################
 function cnt64_setup_initialize() {
   bl64_dbg_app_show_function
-  # X_CODE_PLACEHOLDER_2_X
+  # X_SETUP_PLACEHOLDER_X
   bl64_os_check_version \
     "X_TARGET_OS1_X" \
     "X_TARGET_OSN_X" &&

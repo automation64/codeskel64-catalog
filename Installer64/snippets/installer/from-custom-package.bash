@@ -31,7 +31,7 @@ function inst64_X_APP_NAME_X_install_custom_package() {
   return 0
 }
 
-# X_CODE_PLACEHOLDER_2_X
+# X_GLOBALS_PLACEHOLDER_X
 export INST64_X_APP_NAME_CAPS_X_PLATFORM="${INST64_X_APP_NAME_CAPS_X_PLATFORM:-X_APP_PLATFORM_X}"
 export INST64_X_APP_NAME_CAPS_X_SOURCE="${INST64_X_APP_NAME_CAPS_X_SOURCE:-X_APP_REPO_X}"
 export INST64_X_APP_NAME_CAPS_X_TARGET="${INST64_X_APP_NAME_CAPS_X_TARGET:-${INST64_OPT_ROOT}/X_APP_NAME_X}"
@@ -42,12 +42,12 @@ export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-CUSTO
 export INST64_X_APP_NAME_CAPS_X_PACKAGE_URL=''
 export INST64_X_APP_NAME_CAPS_X_INSTALLER=''
 
-# X_CODE_PLACEHOLDER_3_X
+# X_INSTALL_PLACEHOLDER_X
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'CUSTOM' ]]; then
     inst64_X_APP_NAME_X_install_custom_package
   fi
 
-# X_CODE_PLACEHOLDER_4_X
+# X_INIT_PLACEHOLDER_X
   bl64_os_check_version \
     "${X_BL64_OS_ID_X}" &&
     bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' \
@@ -55,13 +55,13 @@ export INST64_X_APP_NAME_CAPS_X_INSTALLER=''
       'CUSTOM' &&
     bl64_check_privilege_root
 
-# X_CODE_PLACEHOLDER_6_X
+# X_PREPARE_PLACEHOLDER_X
   bl64_arc_setup
 
-# X_CODE_PLACEHOLDER_7_X
+# X_VERIFY_PLACEHOLDER_X
 # example # "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" --help > /dev/null
 
-# X_CODE_PLACEHOLDER_8_X
+# X_SELECT_PKG_PLACEHOLDER_X
   local package_prefix=''
   local package_sufix=''
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'CUSTOM' ]]; then

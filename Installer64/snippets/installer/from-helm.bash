@@ -15,7 +15,7 @@ function inst64_X_APP_NAME_X_install_helm_chart() {
       "${INST64_X_APP_NAME_CAPS_X_HELM_REPO}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}"
 }
 
-# X_CODE_PLACEHOLDER_2_X
+# X_GLOBALS_PLACEHOLDER_X
 # Installation method
 export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-HELM}"
 # Full path to the kubectl config file with valid credentials
@@ -25,12 +25,12 @@ export INST64_X_APP_NAME_CAPS_X_HELM_REPO='X_REPO_NAME_X'
 export INST64_X_APP_NAME_CAPS_X_HELM_SOURCE='X_REPO_SOURCE_X'
 export INST64_X_APP_NAME_CAPS_X_K8S_NAMESPACE='X_TARGET_NS_X'
 
-# X_CODE_PLACEHOLDER_3_X
+# X_INSTALL_PLACEHOLDER_X
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'HELM' ]]; then
     inst64_X_APP_NAME_X_install_helm_chart
   fi
 
-# X_CODE_PLACEHOLDER_4_X
+# X_INIT_PLACEHOLDER_X
   bl64_os_check_version \
     "${X_BL64_OS_ID_X}" &&
     bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' \
@@ -38,12 +38,12 @@ export INST64_X_APP_NAME_CAPS_X_K8S_NAMESPACE='X_TARGET_NS_X'
       'HELM' &&
     bl64_check_privilege_not_root
 
-# X_CODE_PLACEHOLDER_6_X
+# X_PREPARE_PLACEHOLDER_X
   bl64_k8s_setup &&
     bl64_hlm_setup
     inst64_X_APP_NAME_X_add_helm_repo
 
-# X_CODE_PLACEHOLDER_8_X
+# X_SELECT_PKG_PLACEHOLDER_X
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'HELM' ]]; then
     INST64_X_APP_NAME_CAPS_X_PACKAGES='X_PACKAGE_LIST_X'
   fi
