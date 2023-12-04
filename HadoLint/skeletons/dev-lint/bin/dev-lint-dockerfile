@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#
+# Lint Dockerfile code
+#
+# * Check is done using hadolint
+# * Template: 1.0.0
+#
+
+#
+# Imports
+#
+
+# shellcheck source=bin/dev-set
+source ./bin/dev-set || exit 1
+# shellcheck source=lib/bl64/bashlib64-core.bash
+source "${DEV_CICD_BASHLIB64}/bashlib64-core.bash" || exit 1
+
+#
+# Main
+#
+
+declare dev_lint_target="${*:-$DEV_CICD_LINT_DOCKERFILE_TARGET}"
+declare dev_lint_current=''
+
+[[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
+
+bl64_check_parameter 'dev_lint_target' &&
+  bl64_check_export 'DEV_CICD_LINT_DOCKERFILE_CFG' &&
+  bl64_check_export 'DEV_CICD_LINT_DOCKERFILE_TARGET' &&
+  bl64_check_export 'DEV_CICD_LINT_DOCKERFILE_BIN' &&
+  bl64_check_command "$DEV_CICD_LINT_DOCKERFILE_BIN" ||
+  exit $?
+
+bl64_msg_show_batch_start 'lint-dockerfile'
+for dev_lint_current in $dev_lint_target; do
+  bl64_msg_show_phase "lint DOCKERFILE target (${dev_lint_current})"
+  "$DEV_CICD_LINT_DOCKERFILE_BIN" --config "$DEV_CICD_LINT_DOCKERFILE_CFG" "$dev_lint_current"
+done
+bl64_msg_show_batch_finish $? 'lint-dockerfile'

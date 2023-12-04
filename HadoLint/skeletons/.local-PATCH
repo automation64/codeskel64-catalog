@@ -1,0 +1,5 @@
+# delete-me # Add to the .local file
+
+# Lint / Dockerfile / Command
+DEV_CICD_LINT_DOCKERFILE_BIN="/usr/bin/hadolint"
+export DEV_CICD_LINT_DOCKERFILE_BIN
