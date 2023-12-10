@@ -1,14 +1,33 @@
 ---
+#
+# YAMLint / Setup
+#
+# * Template: 1.0.0
+#
+
 extends: default
+
+ignore: |
+  molecule/
 
 yaml-files:
   - "*.yml"
-  - "*.yaml"
-
-ignore: |
-  var/fluxcd/*/flux-system
 
 rules:
+  braces:
+    max-spaces-inside: 1
+    level: "error"
+  brackets:
+    max-spaces-inside: 1
+    level: "error"
+  colons:
+    max-spaces-before: 0
+    max-spaces-after: 1
+    level: "error"
+  commas:
+    max-spaces-before: 0
+    max-spaces-after: -1
+    level: "error"
   comments:
     require-starting-space: true
     min-spaces-from-content: 1
@@ -17,7 +36,6 @@ rules:
     present: true
   document-end:
     present: true
-    level: "warning"
   empty-lines:
     max: 1
     level: "error"
@@ -28,11 +46,18 @@ rules:
     max-spaces-after: 1
     level: "error"
   indentation:
+    spaces: 2
     indent-sequences: true
     check-multi-line-strings: false
-  new-line-at-end-of-file: "enable"
+  key-duplicates: "enable"
   line-length:
     max: 160
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+    level: "warning"
+  new-line-at-end-of-file: "enable"
+  new-lines:
+    type: "unix"
   trailing-spaces: "enable"
   truthy:
     allowed-values:
