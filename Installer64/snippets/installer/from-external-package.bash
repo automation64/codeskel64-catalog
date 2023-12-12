@@ -7,11 +7,12 @@ function inst64_X_APP_NAME_X_add_repository() {
   local repository_extra_1=''
   local repository_extra_2=''
 
-  # delete-me # Remove unused 'if' branches
   if bl64_os_match "${X_BL64_OS_ID_X}"; then
+    # delete-me # For YUM. Remove if not used
     repository_url="${INST64_X_APP_NAME_CAPS_X_SOURCE_X_REPO_TYPE_CAPS_X}/${INST64_X_APP_NAME_CAPS_X_PLATFORM_X_REPO_TYPE_CAPS_X}"
     repository_key="$INST64_X_APP_NAME_CAPS_X_REPOSITORY_KEY_X_REPO_TYPE_CAPS_X"
   elif bl64_os_match "${X_BL64_OS_ID_X}"; then
+    # delete-me # For APT. Remove if not used
     repository_url="${INST64_X_APP_NAME_CAPS_X_SOURCE_X_REPO_TYPE_CAPS_X}"
     repository_key="$INST64_X_APP_NAME_CAPS_X_REPOSITORY_KEY_X_REPO_TYPE_CAPS_X"
     repository_extra_1='X_EXTRA1_X'
@@ -58,7 +59,9 @@ export INST64_X_APP_NAME_CAPS_X_REPOSITORY_KEY_X_REPO_TYPE_CAPS_X='X_KEY_URL_X'
   inst64_X_APP_NAME_X_add_repository
 
 # X_VERIFY_PLACEHOLDER_X
-# example # "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" --help > /dev/null
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'EXTERNAL' ]]; then
+# example #    "/usr/bin/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" --version
+  fi
 
 # X_SELECT_PKG_PLACEHOLDER_X
   if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'EXTERNAL' ]]; then

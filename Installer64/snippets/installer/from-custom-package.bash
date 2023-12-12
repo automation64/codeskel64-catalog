@@ -8,10 +8,10 @@ function inst64_X_APP_NAME_X_install_custom_package() {
   local app_cli_source="${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
 
   bl64_msg_show_task 'download application'
-  work_path="$(bl64_fs_create_tmpdir)" || return $?
-  bl64_rxtx_web_get_file "${INST64_X_APP_NAME_CAPS_X_PACKAGE_URL}/${package_name}" "${work_path}/${package_name}" &&
-# example #    bl64_arc_open_tar "${work_path}/${package_name}" "${work_path}" ||
-# example #    bl64_arc_open_zip "${work_path}/${package_name}" "${work_path}" ||
+  work_path="$(bl64_fs_create_tmpdir)" &&
+  bl64_rxtx_web_get_file "${INST64_X_APP_NAME_CAPS_X_PACKAGE_URL}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}" "${work_path}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}" &&
+# example #    bl64_arc_open_tar "${work_path}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}" "${work_path}" ||
+# example #    bl64_arc_open_zip "${work_path}/${INST64_X_APP_NAME_CAPS_X_PACKAGES}" "${work_path}" ||
     return $?
 
   bl64_msg_show_task 'deploy application'
@@ -21,7 +21,6 @@ function inst64_X_APP_NAME_X_install_custom_package() {
     return $?
 
   bl64_msg_show_task "publish application to searchable path (${INST64_LOCAL_BIN})"
-  # shellcheck disable=SC2086
   bl64_fs_create_symlink \
       "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli_source}" "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" "$BL64_VAR_ON" ||
     return $?
@@ -59,7 +58,9 @@ export INST64_X_APP_NAME_CAPS_X_INSTALLER=''
   bl64_arc_setup
 
 # X_VERIFY_PLACEHOLDER_X
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'EXTERNAL' ]]; then
 # example # "${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" --help > /dev/null
+  fi
 
 # X_SELECT_PKG_PLACEHOLDER_X
   local package_prefix=''
