@@ -9,7 +9,7 @@ spec:
   source: {}
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: "X_APP_NAMESPACE_X"
+    namespace: "X_APP_NAME_X"
   syncPolicy:
     automated:
       prune: true
