@@ -26,7 +26,6 @@ ENV CNT64_BASHLIB64="${CNT64_OPT_ROOT}/bl64"
 
 # Copy image setup scripts
 COPY helpers/bootstrap/bootstrap /bootstrap
-COPY helpers/run/setup /setup
 COPY installer/install-installer64 /install-installer64
 
 # Bootstrap
@@ -37,16 +36,3 @@ RUN \
     "${CNT64_INSTALLER_ROOT}/install-bashlib64" && \
     /bootstrap && \
     rm /install-installer64 /bootstrap
-
-#
-# Setup image
-#
-
-RUN \
-    /setup && \
-    # X_PLACEHOLDER_SETUP_X
-    rm /setup
-
-# Set default user and entrypoint
-USER ${CNT64_USER}
-# example # ENTRYPOINT [ "/bin/bash", "--login" ]
