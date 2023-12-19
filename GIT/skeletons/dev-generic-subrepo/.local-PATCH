@@ -3,3 +3,7 @@
 # Subrepo / GitHub CLI
 DEV_CICD_GH="gh"
 export DEV_CICD_GH
+
+# Subrepo / Origin base URL
+DEV_CICD_SUBREPO_ORIGIN_URL='X_ORIGIN_URL_X'
+export DEV_CICD_SUBREPO_ORIGIN_URL

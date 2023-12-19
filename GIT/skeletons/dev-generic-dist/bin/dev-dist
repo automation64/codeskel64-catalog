@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 #
-# Pack application for delivery
+# Distribute application package
 #
-# * Use to create a distributable package of the application
-# * Template: 2.1.0
+# * Template: 1.0.0
 #
 
 #
@@ -19,7 +18,7 @@ source "${DEV_CICD_BASHLIB64}/bashlib64.bash" || exit 1
 # Functions
 #
 
-function dev_pack_create() {
+function dev_dist_dist() {
   # X_CODE_PLACEHOLDER_2_X
 }
 
@@ -35,7 +34,7 @@ bl64_check_export 'DEV_PACK_FULL_PATH' ||
 # X_CODE_PLACEHOLDER_1_X
 
 bl64_msg_all_enable_verbose
-bl64_msg_show_batch_start 'pack-app'
-bl64_msg_show_task "create distributable package (${DEV_PACK_FULL_PATH})"
-dev_pack_create
-bl64_msg_show_batch_finish $? 'pack-app'
+bl64_msg_show_batch_start 'dist-app'
+bl64_msg_show_task "distribute application package (${DEV_PACK_FULL_PATH})"
+dev_dist_dist
+bl64_msg_show_batch_finish $? 'dist-app'
