@@ -1,3 +1,4 @@
+---
 apiVersion: "v2"
 name: "X_CHART_NAME_X"
 description: "X_CHART_SHORT_DESCRIPTION_X"
@@ -13,3 +14,4 @@ maintainers:
   - name: "X_AUTHOR_ALIAS_X"
     email: "X_AUTHOR_EMAIL_X"
     url: "X_PROJECT_DOC_URL_X"
+...
