@@ -12,8 +12,6 @@ export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-BINAR
 export INST64_X_APP_NAME_CAPS_X_REPO_NAME='X_REPO_NAME_X'
 export INST64_X_APP_NAME_CAPS_X_REPO_OWNER='X_REPO_OWNER_X'
 
-export INST64_X_APP_NAME_CAPS_X_CLI_PATH="${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
-
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_install_binary_release() {
   bl64_dbg_app_show_function
@@ -23,6 +21,13 @@ function inst64_X_APP_NAME_X_install_binary_release() {
   local app_cli_mode='0755'
   local app_cli_source="${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
 
+  if bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE"; then
+    INST64_X_APP_NAME_CAPS_X_CLI_PATH="${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
+  else
+    INST64_X_APP_NAME_CAPS_X_CLI_PATH="${INST64_X_APP_NAME_CAPS_X_TARGET}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
+    app_target_owner="$BL64_VAR_DEFAULT"
+  fi
+
   bl64_msg_show_task 'download application'
   work_path="$(bl64_fs_create_tmpdir)" || return $?
   bl64_rxtx_github_get_asset \
@@ -31,13 +36,11 @@ function inst64_X_APP_NAME_X_install_binary_release() {
     return $?
 
   bl64_msg_show_task 'deploy application'
-  bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE" || app_target_owner="$BL64_VAR_DEFAULT"
   bl64_fs_create_dir "$app_target_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" &&
     bl64_fs_copy_files "$app_cli_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" "${work_path}/${app_cli_source}" ||
     return $?
 
-  bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE" || INST64_X_APP_NAME_CAPS_X_CLI_PATH="${INST64_X_APP_NAME_CAPS_X_TARGET}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
-  bl64_msg_show_task "publish application to searchable path (${INST64_LOCAL_BIN})"
+  bl64_msg_show_task "publish application to searchable path (${INST64_X_APP_NAME_CAPS_X_CLI_PATH})"
   # shellcheck disable=SC2086
   bl64_fs_create_symlink "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli_source}" "$INST64_X_APP_NAME_CAPS_X_CLI_PATH" "$BL64_VAR_ON" ||
     return $?
@@ -68,11 +71,6 @@ function inst64_X_APP_NAME_X_install_binary_release() {
 
 # X_PREPARE_PLACEHOLDER_X
   bl64_arc_setup
-
-# X_VERIFY_PLACEHOLDER_X
-  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'BINARY' ]]; then
-    # example # "$INST64_X_APP_NAME_CAPS_X_CLI_PATH" --version
-  fi
 
 # X_INIT_PLACEHOLDER_X
   if bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE"; then

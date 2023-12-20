@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Template: 2.0.1
+# Template: 2.1.0
 #######################################
 # Installer64 / Package installer
 #
@@ -53,6 +53,7 @@ source "${INST64_BASHLIB64}/bashlib64.bash" ||
 # X_GLOBALS_PLACEHOLDER_X
 export INST64_X_APP_NAME_CAPS_X_PACKAGES=''
 export INST64_X_APP_NAME_CAPS_X_CLI_NAME='X_CLI_NAME_X'
+export INST64_X_APP_NAME_CAPS_X_CLI_PATH=''
 
 #
 # Functions
@@ -125,6 +126,7 @@ function inst64_X_APP_NAME_X_verify() {
   bl64_dbg_app_show_function
   bl64_msg_show_task 'verify deployment'
   # X_VERIFY_PLACEHOLDER_X
+  # example # "$INST64_X_APP_NAME_CAPS_X_CLI_PATH" --version
 }
 
 #######################################
