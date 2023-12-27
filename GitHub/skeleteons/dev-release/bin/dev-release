@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #
-# Run test-cases
+# Release application version
 #
-# * Template: 2.1.1
+# * Template: 1.0.0
 #
 
 #
@@ -18,20 +18,24 @@ source "${DEV_CICD_BASHLIB64}/bashlib64-core.bash" || exit 1
 # Functions
 #
 
-function dev_test_run() {
+function dev_release() {
   bl64_dbg_app_show_function
-  bl64_msg_show_batch_start 'X_TEST_ID_X'
-  # X_CODE_PLACEHOLDER_2_X
+  bl64_msg_show_task "Release application"
+  # X_FUNCTION_PLACEHOLDER_X
 }
 
 #
 # Main
 #
 
+declare dev_release_tag="$1"
+
 [[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
 
-# X_CODE_PLACEHOLDER_1_X
+bl64_check_parameter 'dev_release_tag' ||
+  return $?
 
 bl64_msg_all_enable_verbose
-dev_test_run
-bl64_msg_show_batch_finish $? 'X_TEST_ID_X'
+bl64_msg_show_batch_start 'release'
+dev_release
+bl64_msg_show_batch_finish $? 'release'
