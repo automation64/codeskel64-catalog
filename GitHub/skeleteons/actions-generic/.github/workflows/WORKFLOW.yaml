@@ -1,0 +1,24 @@
+---
+# Template: 1.0.0
+name: "X_TARGET_TITLE_X"
+
+on:
+  pull_request:
+    branches:
+      - "main"
+  push:
+    branches:
+      - "feature/**"
+    paths:
+      # X_PATH_PLACEHOLDER_X
+
+jobs:
+  X_JOB_ID_X:
+    runs-on: "ubuntu-latest"
+    steps:
+
+      - name: "Check out repository code"
+        uses: "actions/checkout@main"
+
+      # "X_ACTION_PLACEHOLDER_X"
+...
