@@ -7,11 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [X_APP_VERSION2_X] - AAAA-MONTH-DD
+## [X_APP_VERSION2_X]
 
-## [X_APP_VERSION1_X] - AAAA-MONTH-DD
+## [X_APP_VERSION1_X]
 
-## [0.0.1] - AAAA-MONTH-DD
+## [0.0.1]
 
 ### Added
 
