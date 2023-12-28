@@ -4,7 +4,7 @@
 #
 # * Use when GIT submodule is not possible or needed
 # * Sub-repositories are regular GIT repositories created inside another one
-# * Template: 2.0.2
+# * Template: 3.0.0
 #
 
 #
@@ -27,8 +27,8 @@ declare dev_subrepo_repository_name=''
 bl64_check_export 'DEV_CICD_SUBREPO_LIST' &&
   bl64_check_export 'DEV_CICD_SUBREPO_ROOT' &&
   bl64_check_export 'DEV_CICD_SUBREPO_UPSTREAM_URL' &&
-  bl64_check_export 'DEV_CICD_GH' ||
-  bl64_check_command "$DEV_CICD_GH" ||
+  bl64_check_export 'DEV_LIB_GH_BIN' ||
+  bl64_check_command_search_path "$DEV_LIB_GH_BIN" ||
   exit $?
 
 bl64_msg_all_enable_verbose
@@ -36,7 +36,7 @@ bl64_msg_show_batch_start 'subrepo-fork'
 cd "$DEV_CICD_SUBREPO_ROOT" || exit $?
 for dev_subrepo_repository_name in $DEV_CICD_SUBREPO_LIST; do
   bl64_msg_show_task "Fork sub-repository (${dev_subrepo_repository_name})"
-  "$DEV_CICD_GH" dev_subrepo_repository_name fork --clone --remote "${DEV_CICD_SUBREPO_UPSTREAM_URL}/${dev_subrepo_repository_name}.git" ||
+  "$DEV_LIB_GH_BIN" dev_subrepo_repository_name fork --clone --remote "${DEV_CICD_SUBREPO_UPSTREAM_URL}/${dev_subrepo_repository_name}.git" ||
     exit $?
 done
 bl64_msg_show_batch_finish $? 'subrepo-fork'

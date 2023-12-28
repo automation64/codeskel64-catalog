@@ -1,5 +1,5 @@
 # delete-me # Add to the .local file
 
 # Lint / MkDocs / Command
-DEV_CICD_LINT_MKDOCS_BIN="${HOME}/.local/bin/mkdocs"
-export DEV_CICD_LINT_MKDOCS_BIN
+DEV_LIB_MKDOCS_BIN="${HOME}/.local/bin/mkdocs"
+export DEV_LIB_MKDOCS_BIN

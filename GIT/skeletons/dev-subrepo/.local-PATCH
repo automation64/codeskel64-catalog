@@ -1,8 +1,8 @@
 # delete-me # Add to the .local file
 
 # Subrepo / GitHub CLI
-DEV_CICD_GH="gh"
-export DEV_CICD_GH
+DEV_LIB_GH_BIN="gh"
+export DEV_LIB_GH_BIN
 
 # Subrepo / Origin base URL
 DEV_CICD_SUBREPO_ORIGIN_URL='X_ORIGIN_URL_X'

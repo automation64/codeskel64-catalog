@@ -1,5 +1,0 @@
-# delete-me # Add to the .local file
-
-# Release / GitHub / Command
-DEV_CICD_RELEASE_GH_BIN="/usr/bin/gh"
-export DEV_CICD_RELEASE_GH_BIN

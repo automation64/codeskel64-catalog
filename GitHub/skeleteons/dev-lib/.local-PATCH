@@ -1,0 +1,5 @@
+# delete-me # Add to the .local file
+
+# Release / GitHub / Command
+DEV_LIB_GH_BIN="/usr/bin/gh"
+export DEV_LIB_GH_BIN
