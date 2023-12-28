@@ -2,7 +2,7 @@
 #
 # Deploy dev-time external tool: Minikube
 #
-# * Template: 1.0.0
+# * Template: 2.0.0
 #
 
 #
@@ -21,9 +21,9 @@ source "${DEV_CICD_BASHLIB64}/bashlib64.bash" || exit 1
 function dev_lib_deploy() {
   bl64_dbg_app_show_function
   export INST64_BASHLIB64="$DEV_CICD_BASHLIB64"
-  export INST64_MINIKUBE_TARGET="$DEV_CICD_MINIKUBE_TARGET"
+  export INST64_MINIKUBE_TARGET="$DEV_LIB_MINIKUBE_TARGET"
   export INST64_MINIKUBE_SYSTEM_WIDE='NO'
-  "${DEV_CICD_MINIKUBE_INSTALLER}"
+  "${DEV_LIB_INSTALLER64_TARGET}/install-minikube"
 }
 
 #
@@ -32,7 +32,7 @@ function dev_lib_deploy() {
 
 [[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
 
-[[ -z "$DEV_CICD_INSTALLER64_BIN" ]] &&
+[[ -z "$DEV_LIB_INSTALLER64_TARGET" ]] &&
   bl64_msg_show_error 'Installer64 not found. Use the dev-lib-instaler64 script to deploy it)' &&
   exit 1
 
