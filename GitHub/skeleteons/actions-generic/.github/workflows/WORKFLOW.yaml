@@ -14,11 +14,12 @@ on:
 
 jobs:
   X_JOB_ID_X:
+    # "X_JOB_PLACEHOLDER_X"
     runs-on: "ubuntu-latest"
     steps:
 
       - name: "Check out repository code"
         uses: "actions/checkout@main"
 
-      # "X_ACTION_PLACEHOLDER_X"
+      # "X_STEPS_PLACEHOLDER_X"
 ...

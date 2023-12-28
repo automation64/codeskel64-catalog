@@ -18,3 +18,4 @@
 | `WUI`       | `Platform independent Web UI`     |
 | `X86`       | `Intel CPU, AMD CPU x86`          |
 | `ZVM`       | `ZVM on Z`                        |
+| `API`       | `API`                             |
