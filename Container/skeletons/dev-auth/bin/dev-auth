@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+#
+# Authentication for dev-time resources
+#
+# * Template: 1.0.0
+#
+
+#
+# Imports
+#
+
+# shellcheck source=bin/dev-set
+source ./bin/dev-set || exit 1
+# shellcheck source=lib/bl64/bashlib64-core.bash
+source "${DEV_CICD_BASHLIB64}/bashlib64-core.bash" || exit 1
+
+#
+# Globals
+#
+
+#
+# Functions
+#
+
+function dev_auth() {
+  bl64_dbg_app_show_function
+  bl64_msg_show_task "X_TITLE_X"
+  bl64_cnt_login \
+    "$DEV_AUTH_DOCKER_USER" "$DEV_AUTH_DOCKER_PASSWORD" "$DEV_AUTH_DOCKER_REGISTRY" ||
+    return $?
+}
+
+#
+# Main
+#
+
+[[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
+
+
+bl64_check_export 'DEV_AUTH_DOCKER_USER' &&
+bl64_check_export 'DEV_AUTH_DOCKER_PASSWORD' &&
+bl64_check_export 'DEV_AUTH_DOCKER_REGISTRY' &&
+bl64_cnt_setup || exit $?
+
+bl64_msg_all_enable_verbose
+bl64_msg_show_batch_start 'auth'
+dev_auth
+bl64_msg_show_batch_finish $? 'auth'

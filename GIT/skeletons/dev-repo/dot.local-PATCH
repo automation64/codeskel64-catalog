@@ -1,4 +1,4 @@
-# delete-me # Add to the .local file
+# delete-me # Add to the dot.local file
 
 # Repo / RSync / Command
 DEV_LIB_RSYNC_BIN="/usr/bin/rsync"

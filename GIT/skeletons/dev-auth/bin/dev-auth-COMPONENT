@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#
+# Authentication for dev-time resources
+#
+# * Template: 1.0.0
+#
+
+#
+# Imports
+#
+
+# shellcheck source=bin/dev-set
+source ./bin/dev-set || exit 1
+# shellcheck source=lib/bl64/bashlib64-core.bash
+source "${DEV_CICD_BASHLIB64}/bashlib64-core.bash" || exit 1
+
+#
+# Globals
+#
+
+#
+# Functions
+#
+
+function dev_auth_X_COMPONENT_X() {
+  bl64_dbg_app_show_function
+  bl64_msg_show_task "X_TITLE_X"
+  # X_FUNCTION_PLACEHOLDER_X
+}
+
+#
+# Main
+#
+
+[[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
+
+# X_INIT_PLACEHOLDER_X
+
+bl64_msg_all_enable_verbose
+bl64_msg_show_batch_start 'auth-X_COMPONENT_X'
+dev_auth_X_COMPONENT_X
+bl64_msg_show_batch_finish $? 'auth-X_COMPONENT_X'

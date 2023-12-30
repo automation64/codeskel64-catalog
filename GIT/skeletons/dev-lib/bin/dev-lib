@@ -7,6 +7,3 @@
 # * Do not include operations that requires privileged access (i.e. sudo)
 # * Template: 1.0.1
 #
-
-# shellcheck source=bin/dev-set
-source ./bin/dev-set || exit 1

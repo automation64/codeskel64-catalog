@@ -1,5 +1,5 @@
 ---
-# Template: 1.0.0
+# Template: 1.0.1
 name: "Release"
 
 env:
@@ -23,7 +23,11 @@ jobs:
       - name: "Prepare dev environment"
         run: "./bin/dev-lib-installer64 && ./bin/dev-lib-bashlib64"
 
-      - name: "Create release"
+      # X_BUILD_PLACEHOLDER_X
+
+      # X_PACK_PLACEHOLDER_X
+
+      - name: "Create GitHub release"
         run: "./bin/dev-release ${GITHUB_REF_NAME}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
