@@ -2,15 +2,16 @@
 # Template: 1.0.0
 name: "X_TARGET_TITLE_X"
 
+concurrency: {}
+
+defaults: {}
+  # X_DEFAULTS_PLACEHOLDER_X
+
+env: {}
+  # X_ENV_PLACEHOLDER_X
+
 on:
-  pull_request:
-    branches:
-      - "main"
-  push:
-    branches:
-      - "feature/**"
-    paths:
-      # X_PATH_PLACEHOLDER_X
+  # X_ON_PLACEHOLDER_X
 
 jobs:
   X_JOB_ID_X:
