@@ -1,11 +1,5 @@
 #
-# ShellCheck / Setup
-#
-# * Template: 1.0.0
-#
-
-#
-# External sources
+# Configuration
 #
 
 external-sources=true
