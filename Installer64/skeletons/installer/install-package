@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Template: 2.1.0
+# Template: 2.2.0
 #######################################
 # Installer64 / Package installer
 #
@@ -29,6 +29,13 @@
 
 # BashLib64 location
 export INST64_BASHLIB64="${INST64_BASHLIB64:-/opt/bl64}"
+# X_IMPORTS_PLACEHOLDER_X
+  { echo 'Error: BashLib64 not found. Please run the install-bashlib64 script and retry.' && exit 1; }
+
+#
+# Globals
+#
+
 # Enable debugging? Set to YES to enable
 export INST64_DEBUG="${INST64_DEBUG:-}"
 # Base path for local applications
@@ -39,16 +46,6 @@ export INST64_LOCAL_BIN="${INST64_LOCAL_BIN:-${INST64_LOCAL_ROOT}/bin}"
 export INST64_OPT_ROOT="${INST64_OPT_ROOT:-/opt}"
 # Location for temporary files
 export INST64_TMP="${INST64_TMP:-/tmp}"
-
-# shellcheck source=lib/bl64/bashlib64.bash
-source "${INST64_BASHLIB64}/bashlib64.bash" ||
-  { echo 'Error: BashLib64 not found. Please run the install-bashlib64 script and retry.' && exit 1; }
-
-# X_IMPORTS_PLACEHOLDER_X
-
-#
-# Globals
-#
 
 # X_GLOBALS_PLACEHOLDER_X
 export INST64_X_APP_NAME_CAPS_X_PACKAGES=''

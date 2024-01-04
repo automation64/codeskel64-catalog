@@ -1,4 +1,15 @@
-# Snippet: 3.0.0
+# Snippet: 3.1.0
+
+# X_IMPORTS_PLACEHOLDER_X
+# shellcheck source-path=lib/bl64
+source "${INST64_BASHLIB64}/bashlib64-module-rxtx.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-api.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-vcs.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-txt.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-fmt.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-fs.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-arc.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-core.bash" ||
 
 # X_GLOBALS_PLACEHOLDER_X
 export INST64_X_APP_NAME_CAPS_X_PLATFORM="${INST64_X_APP_NAME_CAPS_X_PLATFORM:-X_APP_PLATFORM_X}"
@@ -40,10 +51,12 @@ function inst64_X_APP_NAME_X_install_binary_release() {
     bl64_fs_copy_files "$app_cli_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" "${work_path}/${app_cli_source}" ||
     return $?
 
-  bl64_msg_show_task "publish application to searchable path (${INST64_X_APP_NAME_CAPS_X_CLI_PATH})"
-  # shellcheck disable=SC2086
-  bl64_fs_create_symlink "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli_source}" "$INST64_X_APP_NAME_CAPS_X_CLI_PATH" "$BL64_VAR_ON" ||
-    return $?
+  if bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE"; then
+    bl64_msg_show_task "publish application to searchable path (${INST64_X_APP_NAME_CAPS_X_CLI_PATH})"
+    # shellcheck disable=SC2086
+    bl64_fs_create_symlink "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli_source}" "$INST64_X_APP_NAME_CAPS_X_CLI_PATH" "$BL64_VAR_ON" ||
+      return $?
+  fi
 
   bl64_msg_show_task 'cleanup temporary files'
   bl64_fs_rm_tmpdir "$work_path"
