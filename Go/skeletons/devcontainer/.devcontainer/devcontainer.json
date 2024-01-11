@@ -1,0 +1,11 @@
+{
+	"name": "Dev / Go",
+	"image": "ghcr.io/automation64/dev/ubuntu-22.4-dev-go",
+	"features": {},
+	"forwardPorts": [],
+	"customizations": {
+		"vscode": {
+			"extensions": []
+		}
+	}
+}
