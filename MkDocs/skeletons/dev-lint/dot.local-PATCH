@@ -1,5 +1,0 @@
-# delete-me # Add to the dot.local file
-
-# Lint / MkDocs / Command
-DEV_LIB_MKDOCS_BIN="${HOME}/.local/bin/mkdocs"
-export DEV_LIB_MKDOCS_BIN
