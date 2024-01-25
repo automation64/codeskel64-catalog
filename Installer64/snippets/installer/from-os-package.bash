@@ -1,5 +1,11 @@
 # Snippet: 2.4.0
 
+# X_IMPORTS_PLACEHOLDER_X
+# shellcheck source-path=lib/bl64
+  source "${INST64_BASHLIB64}/bashlib64-module-fs.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-pkg.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-core.bash" ||
+
 # X_GLOBALS_PLACEHOLDER_X
 # Installation method
 export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-NATIVE}"
