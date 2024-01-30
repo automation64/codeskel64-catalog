@@ -1,4 +1,11 @@
-# Snippet: 3.1.0
+# Snippet: 3.2.0
+
+# X_IMPORTS_PLACEHOLDER_X
+# shellcheck source-path=lib/bl64
+  source "${INST64_BASHLIB64}/bashlib64-module-fs.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-pkg.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-core.bash" ||
+
 # X_GLOBALS_PLACEHOLDER_X
 # Installation method
 export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-EXTERNAL}"
@@ -36,10 +43,8 @@ function inst64_X_APP_NAME_X_add_repository() {
 
 function inst64_X_APP_NAME_X_install_external_packages() {
   bl64_dbg_app_show_function
-
-  INST64_X_APP_NAME_CAPS_X_CLI_PATH="/usr/bin/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
-
   bl64_msg_show_task 'deploy packages'
+  INST64_X_APP_NAME_CAPS_X_CLI_PATH="/usr/bin/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
   # shellcheck disable=SC2086
   bl64_pkg_deploy $INST64_X_APP_NAME_CAPS_X_PACKAGES
 }
@@ -59,13 +64,15 @@ function inst64_X_APP_NAME_X_install_external_packages() {
   fi
 
 # X_PREPARE_PLACEHOLDER_X
-  inst64_X_APP_NAME_X_add_repository
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'EXTERNAL' ]]; then
+    bl64_pkg_setup
+    inst64_X_APP_NAME_X_add_repository
+  fi
 
 # X_INIT_PLACEHOLDER_X
   bl64_os_check_version \
     "${X_BL64_OS_ID_X}" &&
+    bl64_check_privilege_root &&
     bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' \
       "$INST64_X_APP_NAME_CAPS_X_METHOD" \
-      'EXTERNAL' &&
-    bl64_check_privilege_root &&
-    bl64_pkg_setup
+      'EXTERNAL'
