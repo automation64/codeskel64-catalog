@@ -3,7 +3,7 @@
     //
     // VSCode / Extensions / Base
     //
-    // Settings Template Version: 21AUG23
+    // Settings Template Version: 2FEB24
     // VSCode Version: >= 1.66
     //
     "aaron-bond.better-comments",
@@ -20,6 +20,7 @@
     "dotjoshjohnson.xml",
     "eamodio.gitlens",
     "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
     "fabiospampinato.vscode-diff",
     "felixangelov.bloc",
     "formulahendry.auto-close-tag",
