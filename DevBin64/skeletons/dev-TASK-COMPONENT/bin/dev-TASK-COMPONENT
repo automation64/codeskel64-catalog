@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Dev / X_TASK_X / X_COMPONENT_X / X_TASK_DESCRIPTION_X
+# Dev / X_TASK_TITLE_X / X_COMPONENT_TITLE_X / X_TASK_DESCRIPTION_X
 #
 # * Template: 1.5.0
 #
@@ -11,6 +11,8 @@
 
 # shellcheck source=bin/dev-set
 source ./bin/dev-set || { echo 'dev-set:Error: unable to load dev environment' 2>&1 && exit 1; }
+# shellcheck source-path=bin
+source ./bin/dev-env-X_COMPONENT_X || exit 1
 # shellcheck source-path=lib/bl64
 source "${DEV_LIB_BASHLIB64_TARGET}/bashlib64-core.bash" || exit 1
 
