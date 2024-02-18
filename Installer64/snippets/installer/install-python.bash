@@ -1,4 +1,5 @@
-# Snippet: 3.1.0
+# Snippet: install-python-3.1.0
+
 # X_GLOBALS_PLACEHOLDER_X
 # Installation method
 export INST64_X_APP_NAME_CAPS_X_METHOD="${INST64_X_APP_NAME_CAPS_X_METHOD:-PIP}"

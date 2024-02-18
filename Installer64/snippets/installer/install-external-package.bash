@@ -1,7 +1,7 @@
-# Snippet: 3.2.0
+# Snippet: install-external-package-3.2.0
 
 # X_IMPORTS_PLACEHOLDER_X
-# shellcheck source-path=lib/bl64
+# shellcheck source-path=lib/bl64 disable=SC2015
   source "${INST64_BASHLIB64}/bashlib64-module-fs.bash" &&
   source "${INST64_BASHLIB64}/bashlib64-module-pkg.bash" &&
   source "${INST64_BASHLIB64}/bashlib64-core.bash" ||

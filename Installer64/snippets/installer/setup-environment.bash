@@ -1,4 +1,5 @@
-# Snippet: 1.0.0
+# Snippet: setup-environment-1.0.0
+
 # X_GLOBALS_PLACEHOLDER_X
 export INST64_X_APP_NAME_CAPS_X_ENV_NAME='X_ENV_FILE_NAME_X'
 

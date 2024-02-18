@@ -1,4 +1,5 @@
-# Snippet: 1.0.0
+# Snippet: install-krew-1.0.0
+
 # X_STAND_ALONE_FUNCTIONS_X #
 function inst64_X_APP_NAME_X_install_krew_package() {
   bl64_dbg_app_show_function
