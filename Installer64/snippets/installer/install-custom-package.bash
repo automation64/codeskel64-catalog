@@ -1,4 +1,15 @@
-# Snippet: install-custom-package-4.0.0
+# Snippet: install-custom-package-4.1.0
+
+# X_IMPORTS_PLACEHOLDER_X
+# shellcheck source-path=lib/bl64 disable=SC2015
+source "${INST64_BASHLIB64}/bashlib64-module-rxtx.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-api.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-vcs.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-txt.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-fmt.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-fs.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-module-arc.bash" &&
+  source "${INST64_BASHLIB64}/bashlib64-core.bash" ||
 
 # X_GLOBALS_PLACEHOLDER_X
 export INST64_X_APP_NAME_CAPS_X_PLATFORM="${INST64_X_APP_NAME_CAPS_X_PLATFORM:-X_APP_PLATFORM_X}"
@@ -19,7 +30,6 @@ function inst64_X_APP_NAME_X_install_custom_package() {
   local work_path=''
   local app_target_mode='0755'
   local app_target_owner='root'
-  local app_cli_source="${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
 
   if bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE"; then
     INST64_X_APP_NAME_CAPS_X_CLI_PATH="${INST64_LOCAL_BIN}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}"
@@ -39,13 +49,15 @@ function inst64_X_APP_NAME_X_install_custom_package() {
   bl64_msg_show_task 'deploy application'
   bl64_fs_create_dir "$app_target_mode" "$app_target_owner" "$app_target_owner" "$INST64_X_APP_NAME_CAPS_X_TARGET" &&
     # delete-me # Modify the following line to match the custom installer path
-    "${$INST64_X_APP_NAME_CAPS_X_TARGET}/${INST64_X_APP_NAME_CAPS_X_INSTALLER}" ||
+    # example # "${$work_path}/${INST64_X_APP_NAME_CAPS_X_INSTALLER}" ||
     return $?
 
-  bl64_msg_show_task "publish application to searchable path (${INST64_X_APP_NAME_CAPS_X_CLI_PATH})"
-  bl64_fs_create_symlink \
-      "${INST64_X_APP_NAME_CAPS_X_TARGET}/${app_cli_source}" "$INST64_X_APP_NAME_CAPS_X_CLI_PATH" "$BL64_VAR_ON" ||
-    return $?
+  if bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE"; then
+    bl64_msg_show_task "publish application to searchable path (${INST64_X_APP_NAME_CAPS_X_CLI_PATH})"
+    # shellcheck disable=SC2086
+    bl64_fs_create_symlink "${INST64_X_APP_NAME_CAPS_X_TARGET}/${INST64_X_APP_NAME_CAPS_X_CLI_NAME}" "$INST64_X_APP_NAME_CAPS_X_CLI_PATH" "$BL64_VAR_ON" ||
+      return $?
+  fi
 
   bl64_msg_show_task 'cleanup temporary files'
   bl64_fs_rm_tmpdir "$work_path"
@@ -71,15 +83,21 @@ function inst64_X_APP_NAME_X_install_custom_package() {
   [[ -z "$INST64_X_APP_NAME_CAPS_X_PACKAGE_URL" ]] && bl64_msg_show_error 'unable to determine package download URL' && return 1
 
 # X_PREPARE_PLACEHOLDER_X
-  bl64_arc_setup
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'CUSTOM' ]]; then
+    bl64_arc_setup
+  fi
 
 # X_INIT_PLACEHOLDER_X
-  if bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE"; then
-    bl64_check_privilege_root ||
-      return $?
+  bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' \
+    "$INST64_X_APP_NAME_CAPS_X_METHOD" \
+    'CUSTOM' ||
+    return $?
+
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'CUSTOM' ]]; then
+    if bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE"; then
+      bl64_check_privilege_root ||
+        return $?
+    fi
+    bl64_os_check_compatibility \
+      "${BL64_OS_X_OS_TAG_X}-X_OS_VERSION_X"
   fi
-  bl64_os_check_version \
-    "${X_BL64_OS_ID_X}" &&
-    bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' \
-      "$INST64_X_APP_NAME_CAPS_X_METHOD" \
-      'CUSTOM'
