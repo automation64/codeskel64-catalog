@@ -3,7 +3,7 @@
     //
     // VSCode / Extensions / Base
     //
-    // Settings Template Version: 9FEB24
+    // Settings Template Version: 19FEB24
     // VSCode Version: >= 1.66
     //
     "aaron-bond.better-comments",
@@ -65,7 +65,6 @@
     "tuxtina.json2yaml",
     "tyriar.sort-lines",
     "visualstudioexptteam.vscodeintellicode",
-    "vscodevim.vim",
     "yzhang.markdown-all-in-one",
     "zainchen.json",
     //
