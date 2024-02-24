@@ -43,8 +43,8 @@ function inst64_X_APP_NAME_X_install_os_packages() {
   fi
 
 # X_INIT_PLACEHOLDER_X
-  bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_SHELLCHECK_METHOD' \
-    "$INST64_SHELLCHECK_METHOD" \
+  bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_TERRAFORM_METHOD' \
+    "$INST64_TERRAFORM_METHOD" \
     'NATIVE' ||
     return $?
 

@@ -1,4 +1,4 @@
-# Snippet: install-web-tgz-3.0.1
+# Snippet: install-web-tgz-3.1.0
 
 # X_IMPORTS_PLACEHOLDER_X
 # shellcheck source-path=lib/bl64 disable=SC2015
@@ -80,6 +80,7 @@ function inst64_X_APP_NAME_X_install_binary_release() {
     INST64_X_APP_NAME_CAPS_X_PACKAGES="${package_prefix}${INST64_X_APP_NAME_CAPS_X_VERSION}${INST64_X_APP_NAME_CAPS_X_PLATFORM}${package_sufix}"
     # delete-me # Modify the following line to properly form the package url
     INST64_X_APP_NAME_CAPS_X_PACKAGE_URL="${INST64_X_APP_NAME_CAPS_X_SOURCE}/v${INST64_X_APP_NAME_CAPS_X_VERSION}"
+    [[ -z "$INST64_X_APP_NAME_CAPS_X_PACKAGE_URL" ]] && bl64_msg_show_error 'unable to determine package download URL' && return 1
   fi
 
 # X_PREPARE_PLACEHOLDER_X
@@ -88,12 +89,16 @@ function inst64_X_APP_NAME_X_install_binary_release() {
   fi
 
 # X_INIT_PLACEHOLDER_X
-  if bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE"; then
-    bl64_check_privilege_root ||
-      return $?
+  bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' \
+    "$INST64_X_APP_NAME_CAPS_X_METHOD" \
+    'BINARY' ||
+    return $?
+
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'BINARY' ]]; then
+    if bl64_lib_flag_is_enabled "$INST64_X_APP_NAME_CAPS_X_SYSTEM_WIDE"; then
+      bl64_check_privilege_root ||
+        return $?
+    fi
+    bl64_os_check_compatibility \
+      "${BL64_OS_X_OS_TAG_X}-X_OS_VERSION_X"
   fi
-  bl64_os_check_version \
-    "${X_BL64_OS_ID_X}" &&
-    bl64_fmt_check_value_in_list 'invalid installation method for the parameter INST64_X_APP_NAME_CAPS_X_METHOD' \
-      "$INST64_X_APP_NAME_CAPS_X_METHOD" \
-      'BINARY'
