@@ -1,24 +1,20 @@
 # Pricing
 
 - [Pricing](#pricing)
-  - [Purchasing](#purchasing)
+  - [How to purchase](#how-to-purchase)
+  - [Bill of Materials](#bill-of-materials)
   - [Baselines](#baselines)
-  - [Procedure](#procedure)
-  - [Rules](#rules)
-  - [Modifiers **(Last Update: DD-MONTH-YY)**](#modifiers-last-update-dd-month-yy)
+  - [Estimation Procedure](#estimation-procedure)
   - [NBI **(Last Update: DD-MONTH-YY)**](#nbi-last-update-dd-month-yy)
   - [Reference](#reference)
-  - [Glossary](#glossary)
 
-## Purchasing
+## How to purchase
+
+## Bill of Materials
 
 ## Baselines
 
-## Procedure
-
-## Rules
-
-## Modifiers **(Last Update: DD-MONTH-YY)**
+## Estimation Procedure
 
 ## NBI **(Last Update: DD-MONTH-YY)**
 
@@ -26,6 +22,4 @@
 
 - [Pricing]()
 
-## Glossary
-
-**_template: 1.0.4_**
+**_template: 2.0.0_**

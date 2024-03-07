@@ -78,8 +78,8 @@ function inst64_X_APP_NAME_X_install_binary_release() {
     fi
     package_prefix='X_PACKAGE_PREFIX_X'
     package_sufix='X_PACKAGE_SUFIX_X'
-    # delete-me # Modify the following line to properly form the package name
-    INST64_X_APP_NAME_CAPS_X_PACKAGES="${package_prefix}${INST64_X_APP_NAME_CAPS_X_VERSION}${INST64_X_APP_NAME_CAPS_X_PLATFORM}${package_sufix}"
+    # example # INST64_X_APP_NAME_CAPS_X_PACKAGES="${package_prefix}${INST64_X_APP_NAME_CAPS_X_VERSION}${INST64_X_APP_NAME_CAPS_X_PLATFORM}${package_sufix}"
+    # example # INST64_X_APP_NAME_CAPS_X_PACKAGES="${package_prefix}${INST64_X_APP_NAME_CAPS_X_PLATFORM}${package_sufix}"
   fi
 
 # X_PREPARE_PLACEHOLDER_X
@@ -100,4 +100,9 @@ function inst64_X_APP_NAME_X_install_binary_release() {
     fi
     bl64_os_check_compatibility \
       "${BL64_OS_X_OS_TAG_X}-X_OS_VERSION_X"
+  fi
+
+  # X_PLATFORM_SELECTION_PLACEHOLDER_X #
+  if [[ "$INST64_X_APP_NAME_CAPS_X_METHOD" == 'BINARY' ]]; then
+      # example # [[ -z "$INST64_X_APP_NAME_CAPS_X_PLATFORM" ]] && INST64_X_APP_NAME_CAPS_X_PLATFORM='X_PLATFORM_X'
   fi

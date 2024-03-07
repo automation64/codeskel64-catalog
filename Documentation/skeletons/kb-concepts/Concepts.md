@@ -1,16 +1,10 @@
-# HowTo
+# Concepts
 
-- [HowTo](#howto)
+- [Concepts](#concepts)
   - [Overview](#overview)
-  - [Requirements](#requirements)
-  - [Tasks](#tasks)
   - [References](#references)
 
 ## Overview
-
-## Requirements
-
-## Tasks
 
 ## References
 
