@@ -1,0 +1,14 @@
+{
+  //
+  // VSCode / Settings / Shell
+  //
+  // Settings Template Version: 11MAR24
+  // VSCode Version: >= 1.66
+  //
+  "shellcheck.run": "manual",
+  "bashIde.includeAllWorkspaceSymbols": false,
+  "shellcheck.useWorkspaceRootAsCwd": true,
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+}
