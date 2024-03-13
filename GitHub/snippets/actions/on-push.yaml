@@ -1,4 +1,4 @@
-# Replaces X_ON_PLACEHOLDER_X
+# X_ON_PLACEHOLDER_X
 push:
   branches:
     - "feature/**"

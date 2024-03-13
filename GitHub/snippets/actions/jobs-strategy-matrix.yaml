@@ -1,4 +1,4 @@
-# Replaces X_JOB_PLACEHOLDER_X
+# X_MATRIX_PLACEHOLDER_X
 strategy:
   matrix:
     target:
