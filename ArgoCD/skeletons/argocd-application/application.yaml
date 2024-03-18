@@ -7,6 +7,7 @@ metadata:
 spec:
   project: "X_APP_NAME_X"
   source: {}
+    # X_APPLICATION_SOURCE_PLACEHOLDER_X
   destination:
     server: "https://kubernetes.default.svc"
     namespace: "X_APP_NAME_X"
